@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { randomCouchString } from 'rxdb/plugins/core'
-import { useDatabase } from './composables/useDatabase'
+import { useDatabase } from '~/composables/useDatabase'
 import type { RxTodoDocument } from '~/types'
 
 // Use your database here
 const database = await useDatabase()
 
 // State management
-const newTodoName = ref('')
 const todoList = ref<RxTodoDocument[]>([])
 
 database.todos
@@ -17,19 +15,6 @@ database.todos
   .$.subscribe((todos: RxTodoDocument[]) => {
     todoList.value = todos
   })
-
-async function addTodo() {
-  if (newTodoName.value.length < 1) {
-    return
-  }
-  await database.todos.insert({
-    id: randomCouchString(10),
-    name: newTodoName.value,
-    state: 'open',
-    lastChange: Date.now()
-  })
-  newTodoName.value = ''
-}
 </script>
 
 <template>
@@ -39,14 +24,7 @@ async function addTodo() {
       <h1>TodoMVC with RxDB & P2P</h1>
       <AppDescription />
       <hr />
-      <input
-        v-model="newTodoName"
-        @keyup.enter="addTodo"
-        id="insert-todo"
-        class="new-todo"
-        placeholder="What needs to be done? (Enter to submit)"
-        autofocus
-      />
+      <NewTodoItem />
     </header>
     <section class="main">
       <TodoList :todo-list="todoList" />
