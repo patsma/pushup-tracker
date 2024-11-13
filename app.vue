@@ -1,29 +1,25 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
-import { ensureNotFalsy, randomCouchString } from 'rxdb/plugins/core'
+import { randomCouchString } from 'rxdb/plugins/core'
 import { useDatabase } from './composables/useDatabase'
+import type { RxTodoDocument } from '~/types'
 
 // Use your database here
 const database = await useDatabase()
 
 // State management
 const newTodoName = ref('')
+const todoList = ref<RxTodoDocument[]>([])
 
 // Update URL in description text
 const route = window.location.href
 
-onMounted(async () => {
-  // render reactive todo list
-  const $todoList = getById('todo-list')
-  database.todos
-    .find({
-      sort: [{ state: 'desc' }, { lastChange: 'desc' }]
-    })
-    .$.subscribe(todos => {
-      $todoList.innerHTML = ''
-      todos.forEach(todo => $todoList.append(getHtmlByTodo(todo)))
-    })
-})
+database.todos
+  .find({
+    sort: [{ state: 'desc' }, { lastChange: 'desc' }]
+  })
+  .$.subscribe(todos => {
+    todoList.value = todos
+  })
 
 async function addTodo() {
   if (newTodoName.value.length < 1) {
@@ -40,63 +36,6 @@ async function addTodo() {
 
 function clearCompleted() {
   database.todos.find({ selector: { state: 'done' } }).remove()
-}
-
-function getById<T = HTMLElement>(id: string): T {
-  return ensureNotFalsy(document.getElementById(id)) as any
-}
-const escapeForHTML = (s: string) =>
-  s.replace(/[&<]/g, c => (c === '&' ? '&amp;' : '&lt;'))
-const isEnterEvent = (ev: KeyboardEvent) =>
-  ev.code === 'Enter' || ev.keyCode === 13
-
-function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
-  const $liElement = document.createElement('li')
-  const $viewDiv = document.createElement('div')
-  const $checkbox = document.createElement('input')
-  const $label = document.createElement('label')
-  const $deleteButton = document.createElement('button')
-  $liElement.append($viewDiv)
-  $viewDiv.append($checkbox)
-  $viewDiv.append($label)
-  $viewDiv.append($deleteButton)
-
-  // event: toggle todo state
-  $checkbox.onclick = () =>
-    todo.incrementalPatch({ state: todo.state === 'done' ? 'open' : 'done' })
-  $checkbox.type = 'checkbox'
-  $checkbox.classList.add('toggle')
-
-  // event: change todo name
-  $label.contentEditable = 'true'
-  const updateName = async () => {
-    let newName = $label.innerText || ($label.textContent as string)
-    newName = newName
-      .replace(/<br>/g, '')
-      .replace(/\&nbsp;/g, ' ')
-      .trim()
-    if (newName !== todo.name) {
-      await todo.incrementalPatch({ name: newName })
-    }
-  }
-  $label.onblur = () => updateName()
-  $label.onkeyup = async ev => {
-    if (isEnterEvent(ev)) {
-      updateName()
-    }
-  }
-  $label.innerHTML = escapeForHTML(todo.name)
-
-  // event: delete todo
-  $deleteButton.classList.add('destroy')
-  $deleteButton.onclick = () => todo.remove()
-
-  if (todo.state === 'done') {
-    $liElement.classList.add('completed')
-    $checkbox.checked = true
-  }
-
-  return $liElement
 }
 </script>
 
@@ -145,7 +84,9 @@ function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
     <section class="main">
       <input id="toggle-all" class="toggle-all" type="checkbox" />
       <label for="toggle-all">Mark all as complete</label>
-      <ul class="todo-list" id="todo-list"></ul>
+      <ul class="todo-list" id="todo-list">
+        <TodoListItem v-for="todo in todoList" :todo="todo" :key="todo.id" />
+      </ul>
       <footer class="footer">
         <span class="todo-count"></span>
         <ul class="filters">

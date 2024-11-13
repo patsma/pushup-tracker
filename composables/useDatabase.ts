@@ -106,9 +106,8 @@ export const useDatabase = async () => {
   }, true)
   await database.todos.bulkInsert(
     [
-      'touch your 👃 with your 👅',
-      "solve rubik's cube 🎲 blindfolded",
-      'invent new 🍔'
+      '👋 Hello Nuxt Nation 2024!',
+      "👩‍🚀 Let's explore the future of local-first apps!"
     ].map((name, idx) => ({
       id: 'todo-' + idx,
       name,
