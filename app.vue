@@ -10,14 +10,11 @@ const database = await useDatabase()
 const newTodoName = ref('')
 const todoList = ref<RxTodoDocument[]>([])
 
-// Update URL in description text
-const route = window.location.href
-
 database.todos
   .find({
     sort: [{ state: 'desc' }, { lastChange: 'desc' }]
   })
-  .$.subscribe(todos => {
+  .$.subscribe((todos: RxTodoDocument[]) => {
     todoList.value = todos
   })
 
@@ -43,34 +40,8 @@ function clearCompleted() {
   <GitHubBanner />
   <section class="todoapp">
     <header class="header">
-      <h1>p2p todos</h1>
-      <p class="description">
-        This is a
-        <a href="https://rxdb.info/offline-first.html" target="_blank"
-          >local first</a
-        >
-        todo app that stores data locally with
-        <a href="https://rxdb.info/" target="_blank">RxDB</a> and replicates it
-        <a href="https://rxdb.info/replication-p2p.html" target="_blank"
-          >peer-to-peer with WebRTC</a
-        >
-        to other devices without sending the data through any central server.
-        Open this url in another browser/device/tab to test the replication:
-        <br />
-        <code>{{ route }}</code>
-        The whole app is implemented without a framework in about 200 lines of
-        TypeScript code. To learn more about how it works, I recommend looking
-        at the
-        <a
-          href="https://github.com/pubkey/rxdb-quickstart/blob/master/src/index.ts"
-          target="_blank"
-          >source code</a
-        >
-        and read the
-        <a href="https://rxdb.info/quickstart.html" target="_blank"
-          >RxDB Quickstart Guide</a
-        >.
-      </p>
+      <h1>TodoMVC with RxDB & P2P</h1>
+      <AppDescription />
       <hr />
       <input
         v-model="newTodoName"
@@ -82,29 +53,7 @@ function clearCompleted() {
       />
     </header>
     <section class="main">
-      <input id="toggle-all" class="toggle-all" type="checkbox" />
-      <label for="toggle-all">Mark all as complete</label>
-      <ul class="todo-list" id="todo-list">
-        <TodoListItem v-for="todo in todoList" :todo="todo" :key="todo.id" />
-      </ul>
-      <footer class="footer">
-        <span class="todo-count"></span>
-        <ul class="filters">
-          <!-- <li>
-                        <a class="selected">All</a>
-                    </li> -->
-          <!-- <li>
-                        <a>Completed</a>
-                    </li> -->
-        </ul>
-        <button
-          @click="clearCompleted"
-          class="clear-completed"
-          id="clear-completed"
-        >
-          Clear completed
-        </button>
-      </footer>
+      <TodoList :todo-list="todoList" />
     </section>
   </section>
   <TheFooter />
@@ -112,6 +61,11 @@ function clearCompleted() {
 
 <style>
 @import 'todomvc-app-css/index.css';
+
+.todoapp h1 {
+  top: -80px;
+  font-size: 40px;
+}
 
 .description {
   padding: 15px;
