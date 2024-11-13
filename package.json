@@ -10,7 +10,11 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "node-datachannel": "^0.21.0",
     "nuxt": "^3.14.159",
+    "rxdb": "^15.37.0",
+    "rxjs": "^7.8.1",
+    "todomvc-app-css": "^2.4.3",
     "vue": "latest",
     "vue-router": "latest"
   }
