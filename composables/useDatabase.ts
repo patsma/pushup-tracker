@@ -34,7 +34,7 @@ export const useDatabase = async () => {
   // Initialize IndexedDB storage using Dexie.js
   let storage: RxStorage<any, any> = getRxStorageDexie()
 
-  databasePromise = (async () => {
+  async function initDatabase() {
     // Development-only plugins for better debugging and validation
     if (mode === 'development') {
       await import('rxdb/plugins/dev-mode').then(module =>
@@ -152,7 +152,10 @@ export const useDatabase = async () => {
       })
     })
     return database
-  })()
+  }
+
+  // Store the promise of database creation
+  databasePromise = initDatabase()
 
   return databasePromise
 }
