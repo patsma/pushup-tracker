@@ -1,5 +1,9 @@
 <script setup lang="ts">
+import { useDatabase } from '~/composables/useDatabase'
 import type { RxTodoDocument } from '~/types'
+
+// Use your database here
+const database = await useDatabase()
 
 const props = defineProps<{
   todoList: RxTodoDocument[]
@@ -8,6 +12,10 @@ const props = defineProps<{
 const remainingItems = computed(() => {
   return props.todoList.filter(todo => todo.state !== 'done').length
 })
+
+function clearCompleted() {
+  database.todos.find({ selector: { state: 'done' } }).remove()
+}
 </script>
 
 <template>

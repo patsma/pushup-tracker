@@ -30,10 +30,6 @@ async function addTodo() {
   })
   newTodoName.value = ''
 }
-
-function clearCompleted() {
-  database.todos.find({ selector: { state: 'done' } }).remove()
-}
 </script>
 
 <template>
