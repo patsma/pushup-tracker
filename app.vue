@@ -6,6 +6,9 @@ import { useDatabase } from './composables/useDatabase'
 // Use your database here
 const database = await useDatabase()
 
+// State management
+const newTodoName = ref('')
+
 // Update URL in description text
 const route = window.location.href
 
@@ -21,31 +24,23 @@ onMounted(async () => {
       todos.forEach(todo => $todoList.append(getHtmlByTodo(todo)))
     })
 
-  // event: add todo
-  const $insertInput = getById<HTMLInputElement>('insert-todo')
-  const addTodo = async () => {
-    if ($insertInput.value.length < 1) {
-      return
-    }
-    await database.todos.insert({
-      id: randomCouchString(10),
-      name: $insertInput.value,
-      state: 'open',
-      lastChange: Date.now()
-    })
-    $insertInput.value = ''
-  }
-  $insertInput.onkeydown = async event => {
-    if (isEnterEvent(event)) {
-      addTodo()
-    }
-  }
-  $insertInput.onblur = () => addTodo()
-
   // event: clear completed
   getById('clear-completed').onclick = () =>
     database.todos.find({ selector: { state: 'done' } }).remove()
 })
+
+async function addTodo() {
+  if (newTodoName.value.length < 1) {
+    return
+  }
+  await database.todos.insert({
+    id: randomCouchString(10),
+    name: newTodoName.value,
+    state: 'open',
+    lastChange: Date.now()
+  })
+  newTodoName.value = ''
+}
 
 function getById<T = HTMLElement>(id: string): T {
   return ensureNotFalsy(document.getElementById(id)) as any
@@ -54,6 +49,7 @@ const escapeForHTML = (s: string) =>
   s.replace(/[&<]/g, c => (c === '&' ? '&amp;' : '&lt;'))
 const isEnterEvent = (ev: KeyboardEvent) =>
   ev.code === 'Enter' || ev.keyCode === 13
+
 function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
   const $liElement = document.createElement('li')
   const $viewDiv = document.createElement('div')
@@ -138,6 +134,8 @@ function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
       </p>
       <hr />
       <input
+        v-model="newTodoName"
+        @keyup.enter="addTodo"
         id="insert-todo"
         class="new-todo"
         placeholder="What needs to be done? (Enter to submit)"
