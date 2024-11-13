@@ -6,12 +6,10 @@ import { useDatabase } from './composables/useDatabase'
 // Use your database here
 const database = await useDatabase()
 
+// Update URL in description text
+const route = window.location.href
+
 onMounted(async () => {
-  console.log(database)
-
-  // update url in description text
-  getById('copy-url').innerHTML = window.location.href
-
   // render reactive todo list
   const $todoList = getById('todo-list')
   database.todos
@@ -107,12 +105,7 @@ function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
 </script>
 
 <template>
-  <span id="forkongithub">
-    <a href="https://github.com/pubkey/rxdb-quickstart" target="_blank"
-      >Fork me on GitHub</a
-    >
-  </span>
-
+  <GitHubBanner />
   <section class="todoapp">
     <header class="header">
       <h1>p2p todos</h1>
@@ -129,8 +122,7 @@ function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
         to other devices without sending the data through any central server.
         Open this url in another browser/device/tab to test the replication:
         <br />
-        <code id="copy-url"></code>
-        <br />
+        <code>{{ route }}</code>
         The whole app is implemented without a framework in about 200 lines of
         TypeScript code. To learn more about how it works, I recommend looking
         at the
@@ -172,25 +164,7 @@ function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
       </footer>
     </section>
   </section>
-  <footer class="info">
-    <!-- <p>Double-click to edit a todo</p> -->
-    <p>
-      👨‍💻 Written by
-      <a href="https://www.bencodezen.io" target="_blank">BenCodeZen</a>
-    </p>
-    <p>
-      ⚡ Powered by <a href="https://nuxt.com/">Nuxt 3</a> &
-      <a href="https://rxdb.info">RxDB</a>
-    </p>
-    <p>
-      🎩 Inspired by
-      <a
-        href="https://github.com/pubkey/rxdb-quickstart/tree/master"
-        target="_blank"
-        >pubkey/rxdb-quickstart</a
-      >.
-    </p>
-  </footer>
+  <TheFooter />
 </template>
 
 <style>
