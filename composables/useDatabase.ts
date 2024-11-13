@@ -6,7 +6,6 @@ import {
   defaultHashSha256,
   addRxPlugin,
   randomCouchString,
-  RxDocument,
   RxJsonSchema,
   deepEqual,
   RxConflictHandler,
