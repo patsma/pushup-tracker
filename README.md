@@ -1,6 +1,4 @@
-# Nuxt Minimal Starter
-
-Look at the [Nuxt documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+# Local-First Peer-to-Peer Nuxt 3 + RxDB App
 
 ## Setup
 
@@ -73,3 +71,7 @@ bun run preview
 ```
 
 Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
+
+## 🎩 Inspiration
+
+Big thanks to [Daniel Meyer](https://github.com/pubkey)'s work on [rxdb-quickstart](https://github.com/pubkey/rxdb-quickstart/tree/master) which was a major inspiration for this repo.
