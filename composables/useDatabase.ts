@@ -1,24 +1,25 @@
-import { ref } from 'vue'
 import { useRuntimeConfig } from '#imports'
 import {
-  RxCollection,
   createRxDatabase,
   defaultHashSha256,
   addRxPlugin,
   randomCouchString,
-  RxJsonSchema,
   deepEqual,
-  RxConflictHandler,
-  RXDB_VERSION,
-  RxStorage
+  RXDB_VERSION
 } from 'rxdb/plugins/core'
 import {
   replicateWebRTC,
-  getConnectionHandlerSimplePeer,
-  SimplePeer
+  getConnectionHandlerSimplePeer
 } from 'rxdb/plugins/replication-webrtc'
 import { getRxStorageDexie } from 'rxdb/plugins/storage-dexie'
-import nodeDatachannelPolyfill from 'node-datachannel'
+
+import type {
+  RxDatabase,
+  RxCollection,
+  RxConflictHandler,
+  RxStorage
+} from 'rxdb/plugins/core'
+import type { SimplePeer } from 'rxdb/plugins/replication-webrtc'
 
 // Singleton pattern: Store database instance to prevent multiple instantiations
 let databasePromise: Promise<RxDatabase> | null = null
