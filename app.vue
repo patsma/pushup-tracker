@@ -23,10 +23,6 @@ onMounted(async () => {
       $todoList.innerHTML = ''
       todos.forEach(todo => $todoList.append(getHtmlByTodo(todo)))
     })
-
-  // event: clear completed
-  getById('clear-completed').onclick = () =>
-    database.todos.find({ selector: { state: 'done' } }).remove()
 })
 
 async function addTodo() {
@@ -40,6 +36,10 @@ async function addTodo() {
     lastChange: Date.now()
   })
   newTodoName.value = ''
+}
+
+function clearCompleted() {
+  database.todos.find({ selector: { state: 'done' } }).remove()
 }
 
 function getById<T = HTMLElement>(id: string): T {
@@ -156,7 +156,11 @@ function getHtmlByTodo(todo: RxTodoDocument): HTMLLIElement {
                         <a>Completed</a>
                     </li> -->
         </ul>
-        <button class="clear-completed" id="clear-completed">
+        <button
+          @click="clearCompleted"
+          class="clear-completed"
+          id="clear-completed"
+        >
           Clear completed
         </button>
       </footer>
