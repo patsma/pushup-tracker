@@ -8,6 +8,7 @@ const database = await useDatabase()
 // State management
 const todoList = ref<RxTodoDocument[]>([])
 
+
 database.todos
   .find({
     sort: [{ state: 'desc' }, { lastChange: 'desc' }]
