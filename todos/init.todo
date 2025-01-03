@@ -1,0 +1,15 @@
+Project: Local First Nuxt TodoMVC
+
+☐ [ ] Add Nuxt UI components and styling
+- [ ] Create responsive layout with proper spacing
+- [ ] Style todo items with cards and shadows
+- [ ] Add date/time display for each todo
+- [ ] Implement proper typography and colors
+- [ ] Add loading states and transitions
+- [ ] Add proper form validation
+- [ ] Style todo state toggles and actions
+- [ ] Make todo list sortable by date
+- [ ] Add proper empty states and error handling
+- [ ] Implement dark/light mode toggle
+- [ ] Add proper mobile responsiveness
+

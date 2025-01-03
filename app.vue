@@ -16,22 +16,50 @@ database.todos
   .$.subscribe((todos: RxTodoDocument[]) => {
     todoList.value = todos
   })
+
+const { loggedIn, user, session, fetch, clear } = useUserSession()
+import { ref, watch } from 'vue'
+
+// Reactive variable to store the username
+const username = ref(localStorage.getItem('username') || '')
+
+// Ask for username if not set
+if (!username.value) {
+  const input = prompt('Enter your nickname:')
+  if (input) {
+    username.value = input.trim() || 'Anonymous'
+    localStorage.setItem('username', username.value) // Store in localStorage
+  }
+}
+
+// Watch for username changes
+watch(username, newName => {
+  localStorage.setItem('username', newName)
+})
 </script>
 
 <template>
-  <GitHubBanner />
   <section class="todoapp">
+    <header>
+      <h1>Minimal ToDo App</h1>
+      <p>Logged in as: {{ username }}</p>
+    </header>
     <header class="header">
-      <h1>TodoMVC with RxDB & P2P</h1>
-      <AppDescription />
-      <hr />
       <NewTodoItem />
     </header>
     <section class="main">
       <TodoList :todo-list="todoList" />
     </section>
+    <section class="main">
+      <ul class="todo-list">
+        <li v-for="todo in todoList" :key="todo.id">
+          {{ todo.name }} - {{ todo.state }} (by {{ todo.createdBy }})
+        </li>
+      </ul>
+    </section>
+
   </section>
-  <TheFooter />
+
 </template>
 
 <style>

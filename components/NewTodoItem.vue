@@ -12,15 +12,16 @@ async function addTodo() {
   if (newTodoName.value.length < 1) {
     return
   }
+  const username = localStorage.getItem('username') || 'Anonymous' // Get username
   await database.todos.insert({
     id: randomCouchString(10),
     name: newTodoName.value,
     state: 'open',
-    lastChange: Date.now()
+    lastChange: Date.now(),
+    createdBy: username // Include username
   })
   newTodoName.value = ''
-}
-</script>
+}</script>
 
 <template>
   <input
