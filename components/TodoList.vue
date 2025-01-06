@@ -6,7 +6,7 @@ import type { RxTodoDocument } from '~/types'
 const database = await useDatabase()
 
 const props = defineProps<{
-  todoList: RxTodoDocument[]
+  todoList: any[]
 }>()
 
 const filter = ref('all')

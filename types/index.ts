@@ -1,6 +1,6 @@
 import type { RxDocument } from "rxdb";
 
-interface TodoDocType {
+export interface TodoDocType {
   id: string;
   name: string;
   state: "open" | "done";

@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useDatabase } from '~/composables/useDatabase'
-import type { RxTodoDocument } from '~/types'
+import type { RxDocument } from 'rxdb/plugins/core'
+import type { TodoDocType } from '~/types'
 import { ref, watch } from 'vue'
 
 // State management
-const todoList = ref<RxTodoDocument[]>([])
+const todoList = ref<RxDocument<TodoDocType, {}>[]>([])
 const username = ref(localStorage.getItem('username') || '')
 
 // Use your database here
@@ -15,7 +16,8 @@ database.todos
   .find({
     sort: [{ state: 'desc' }, { lastChange: 'desc' }]
   })
-  .$.subscribe((todos) => {
+  .exec()
+  .then(todos => {
     todoList.value = todos
   })
 
@@ -44,7 +46,7 @@ watch(username, newName => {
       <NewTodoItem />
     </header>
     <section class="main">
-      <TodoList :todo-list="todoList" />
+      <TodoList :todoList="todoList" />
     </section>
     <section class="main">
       <ul class="todo-list">

@@ -29,7 +29,7 @@ interface TodoDocType {
   createdBy: string;
 }
 
-interface CollectionsOfDatabase {
+export interface CollectionsOfDatabase {
   todos: RxCollection<TodoDocType>;
 }
 
