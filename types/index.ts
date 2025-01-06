@@ -1,10 +1,11 @@
-import { RxDocument } from 'rxdb/plugins/core'
+import type { RxDocument } from "rxdb";
 
-export type TodoDocType = {
-  id: string
-  name: string
-  state: 'open' | 'done'
-  lastChange: number
+interface TodoDocType {
+  id: string;
+  name: string;
+  state: "open" | "done";
+  lastChange: number;
+  createdBy: string;
 }
 
-export type RxTodoDocument = RxDocument<TodoDocType>
+export type RxTodoDocument = RxDocument<TodoDocType>;

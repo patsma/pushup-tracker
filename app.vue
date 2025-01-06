@@ -1,34 +1,30 @@
 <script setup lang="ts">
 import { useDatabase } from '~/composables/useDatabase'
 import type { RxTodoDocument } from '~/types'
+import { ref, watch } from 'vue'
+
+// State management
+const todoList = ref<RxTodoDocument[]>([])
+const username = ref(localStorage.getItem('username') || '')
 
 // Use your database here
 const database = await useDatabase()
 
-// State management
-const todoList = ref<RxTodoDocument[]>([])
-
-
+// Subscribe to database changes with proper typing
 database.todos
   .find({
     sort: [{ state: 'desc' }, { lastChange: 'desc' }]
   })
-  .$.subscribe((todos: RxTodoDocument[]) => {
+  .$.subscribe((todos) => {
     todoList.value = todos
   })
-
-const { loggedIn, user, session, fetch, clear } = useUserSession()
-import { ref, watch } from 'vue'
-
-// Reactive variable to store the username
-const username = ref(localStorage.getItem('username') || '')
 
 // Ask for username if not set
 if (!username.value) {
   const input = prompt('Enter your nickname:')
   if (input) {
     username.value = input.trim() || 'Anonymous'
-    localStorage.setItem('username', username.value) // Store in localStorage
+    localStorage.setItem('username', username.value)
   }
 }
 
