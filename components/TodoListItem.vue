@@ -37,6 +37,7 @@ function updateTodoState() {
     <!-- TODO: User can cancel the edit by pressing escape or on blur -->
     <label contenteditable="true" @keyup.enter="updateTodoName">
       {{ todo.name }}
+      {{ todo.createdBy }}
     </label>
     <button class="destroy" @click="deleteTodo"></button>
   </li>

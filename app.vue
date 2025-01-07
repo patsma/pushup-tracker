@@ -36,7 +36,7 @@ watch(username, (newName) => {
 <template>
   <section class="todoapp">
     <header>
-      <h1>Minimal ToDo App</h1>
+      <h1>Pushup Tracker</h1>
       <p>Logged in as: {{ username }}</p>
     </header>
     <header class="header">
@@ -44,13 +44,6 @@ watch(username, (newName) => {
     </header>
     <section class="main">
       <TodoList :todo-list="todoList" />
-    </section>
-    <section class="main">
-      <ul class="todo-list">
-        <li v-for="todo in todoList" :key="todo.id">
-          {{ todo.name }} - {{ todo.state }} (by {{ todo.createdBy }})
-        </li>
-      </ul>
     </section>
   </section>
 </template>

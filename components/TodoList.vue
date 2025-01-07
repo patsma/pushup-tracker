@@ -33,6 +33,8 @@ function clearCompleted() {
 
 <template>
   <div>
+    <p>I'm here</p>
+
     <input id="toggle-all" class="toggle-all" type="checkbox" />
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">
@@ -41,9 +43,7 @@ function clearCompleted() {
         :todo="todo"
         :key="todo.id"
       >
-        <template #creator>
-          <span class="creator-info">Created by: {{ todo.createdBy }}</span>
-        </template>
+        <span class="creator-info">Created by: {{ todo.createdBy }}</span>
       </TodoListItem>
     </ul>
     <footer class="footer">

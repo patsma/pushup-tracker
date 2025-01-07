@@ -1,8 +1,9 @@
-Project: Local First Nuxt TodoMVC
+Project: Pushup Tracker
 
-☐ [ ] Add Nuxt UI compoents and styling
+✔ [ ] Ensure the created by is displaying in the list @started(25-01-07 04:39) @done(25-01-07 04:51) @lasted(12m35s)
+- [ ] Add Nuxt UI components and styling
 - [ ] Create responsive layout with proper spacing
-- [ ] Style todo items with cards and shadows
+- [ ] Style todo items with cards and shadows 
 - [ ] Add date/time display for each todo
 - [ ] Implement proper typography and colors
 - [ ] Add loading states and transitions
@@ -12,4 +13,7 @@ Project: Local First Nuxt TodoMVC
 - [ ] Add proper empty states and error handling
 - [ ] Implement dark/light mode toggle
 - [ ] Add proper mobile responsiveness
-
+- [ ] Add date and hour minute to creation of entry
+- [ ] Refactor to table view with number of pushups and user name
+- [ ] Ensure input takes only number
+- [ ] Create a simple leaderboard to calculate the overall pushups
