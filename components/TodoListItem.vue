@@ -1,26 +1,27 @@
-<script setup lang="ts">
-import type { RxTodoDocument } from '~/types'
-
-const props = defineProps<{
-  todo: RxTodoDocument
-}>()
+<script setup>
+const props = defineProps({
+  todo: {
+    type: Object,
+    required: true,
+  },
+});
 
 async function deleteTodo() {
-  await props.todo.remove()
+  await props.todo.remove();
 }
 
-async function updateTodoName(ev: KeyboardEvent) {
-  const newName: string = (ev.target as HTMLLabelElement).textContent || ''
+async function updateTodoName(ev) {
+  const newName = ev.target.textContent || "";
 
   if (newName !== props.todo.name) {
-    await props.todo.incrementalPatch({ name: newName })
+    await props.todo.incrementalPatch({ name: newName });
   }
 }
 
 function updateTodoState() {
   props.todo.incrementalPatch({
-    state: props.todo.state === 'done' ? 'open' : 'done'
-  })
+    state: props.todo.state === "done" ? "open" : "done",
+  });
 }
 </script>
 

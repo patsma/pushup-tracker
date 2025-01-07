@@ -3,4 +3,4 @@ export default defineNuxtPlugin(() => {
     ...window.process,
     nextTick: (fn, ...args) => setTimeout(() => fn(...args))
   }
-})
+}) 
