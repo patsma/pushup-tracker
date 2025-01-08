@@ -1,42 +1,57 @@
-<script setup lang="ts">
-import type { RxTodoDocument } from '~/types'
+<script setup>
+import { computed } from "vue";
 
-const props = defineProps<{
-  todo: RxTodoDocument
-}>()
+const props = defineProps({
+  todo: {
+    type: Object,
+    required: true,
+  },
+});
+
+const username = localStorage.getItem("username");
+const canDelete = computed(() => props.todo.createdBy === username);
 
 async function deleteTodo() {
-  await props.todo.remove()
-}
-
-async function updateTodoName(ev: KeyboardEvent) {
-  const newName: string = (ev.target as HTMLLabelElement).textContent || ''
-
-  if (newName !== props.todo.name) {
-    await props.todo.incrementalPatch({ name: newName })
+  if (canDelete.value) {
+    await props.todo.remove();
   }
 }
 
-function updateTodoState() {
-  props.todo.incrementalPatch({
-    state: props.todo.state === 'done' ? 'open' : 'done'
-  })
-}
+const formattedDate = computed(() => {
+  return new Date(props.todo.timestamp).toLocaleString();
+});
 </script>
 
 <template>
-  <li :class="{ completed: todo.state === 'done' }">
-    <input
-      class="toggle"
-      type="checkbox"
-      @input="updateTodoState"
-      :checked="todo.state === 'done'"
-    />
-    <!-- TODO: Use input element for proper a11y -->
-    <!-- TODO: User can cancel the edit by pressing escape or on blur -->
-    <label contenteditable="true" @keyup.enter="updateTodoName">
-      {{ todo.name }}
-    </label>
-    <button class="destroy" @click="deleteTodo"></button>
+  <li>
+    <div class="pushup-entry">
+      <span class="pushup-count">{{ todo.pushupCount }} pushups</span>
+      <span class="creator-info">by {{ todo.createdBy }}</span>
+      <span class="timestamp">{{ formattedDate }}</span>
+      <button v-if="canDelete" class="destroy" @click="deleteTodo"></button>
+    </div>
   </li>
 </template>
+
+<style scoped>
+.pushup-entry {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  gap: 1rem;
+}
+
+.pushup-count {
+  font-weight: bold;
+  min-width: 100px;
+}
+
+.creator-info {
+  color: #777;
+}
+
+.timestamp {
+  color: #999;
+  font-size: 0.8em;
+}
+</style>
