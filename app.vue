@@ -23,10 +23,10 @@ database.todos
 </script>
 
 <template>
-  <UContainer class="py-8">
+  <UContainer class="py-8 flex flex-col items-center gap-4">
+    <h1 class="text-3xl font-bold">Pushup Tracker</h1>
     <header class="mb-8">
       <div class="flex items-center justify-between mb-4">
-        <h1 class="text-3xl font-bold">Pushup Tracker</h1>
         <div class="flex items-center gap-4">
           <UColorModeButton />
           <UserAuth />
@@ -34,7 +34,7 @@ database.todos
       </div>
     </header>
 
-    <main class="space-y-8">
+    <main class="space-y-8 w-full lg:max-w-3xl">
       <PushupEntry />
       <TodoList :todo-list="todoList" />
       <LeaderBoard />

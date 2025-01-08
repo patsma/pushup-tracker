@@ -26,7 +26,7 @@ const formattedDate = computed(() => {
   <UCard class="mb-2">
     <div class="flex items-center justify-between">
       <div class="flex items-center gap-4">
-        <span class="text-lg font-bold">{{ todo.pushupCount }} pushups</span>
+        <span class="text-lg font-bold">{{ todo.pushupCount }}</span>
         <span class="text-gray-500 dark:text-gray-400"
           >by {{ todo.createdBy }}</span
         >

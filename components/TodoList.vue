@@ -22,12 +22,20 @@ const displayedTodoList = computed(() => {
 <template>
   <div class="pushups-container">
     <div class="filters">
-      <button @click="filter = 'all'" :class="{ selected: filter === 'all' }">
+      <UButton
+        color="primary"
+        :class="{ selected: filter === 'all' }"
+        @click="filter = 'all'"
+      >
         All Entries
-      </button>
-      <button @click="filter = 'me'" :class="{ selected: filter === 'me' }">
+      </UButton>
+      <UButton
+        color="primary"
+        @click="filter = 'me'"
+        :class="{ selected: filter === 'me' }"
+      >
         My Entries
-      </button>
+      </UButton>
     </div>
 
     <div class="entries-list">
@@ -42,26 +50,13 @@ const displayedTodoList = computed(() => {
 
 <style scoped>
 .pushups-container {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   margin: 1rem 0;
 }
 
 .filters {
   display: flex;
   gap: 1rem;
-  padding: 1rem;
-  border-bottom: 1px solid #eee;
-}
-
-.filters button {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background: #f5f5f5;
-  cursor: pointer;
-  color: #666;
+  padding-bottom: 2rem;
 }
 
 .filters button.selected {
@@ -70,9 +65,8 @@ const displayedTodoList = computed(() => {
 }
 
 .entries-list {
-  max-height: 60vh;
+  max-height: 40vh;
   overflow-y: auto;
-  padding: 1rem;
 }
 
 /* Custom scrollbar */
@@ -86,6 +80,6 @@ const displayedTodoList = computed(() => {
 
 .entries-list::-webkit-scrollbar-thumb {
   background: #b83f45;
-  border-radius: 4px;
+  /* border-radius: 4px; */
 }
 </style>

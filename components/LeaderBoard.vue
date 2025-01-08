@@ -42,7 +42,7 @@ const leaderboard = computed(() => {
           <span class="text-primary-500 font-bold">#{{ entry.rank }}</span>
           <span>{{ entry.username }}</span>
         </div>
-        <span class="font-bold">{{ entry.total }} pushups</span>
+        <span class="font-bold">{{ entry.total }} </span>
       </div>
     </div>
   </UCard>

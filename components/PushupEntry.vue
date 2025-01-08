@@ -20,12 +20,12 @@ async function addPushups(count) {
 <template>
   <div class="flex justify-center gap-4">
     <UButton
-      v-for="count in [5, 10, 20]"
+      v-for="count in [5, 10, 20, 50, 100]"
       :key="count"
       color="primary"
       @click="addPushups(count)"
     >
-      {{ count }} Pushups
+      {{ count }}
     </UButton>
   </div>
 </template>
