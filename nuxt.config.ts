@@ -1,22 +1,27 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2024-04-03',
+  compatibilityDate: "2024-04-03",
   ssr: false,
   devtools: { enabled: true },
 
   runtimeConfig: {
     public: {
-      mode: process.env.NODE_ENV
-    }
+      mode: process.env.NODE_ENV,
+    },
+  },
+
+  devServer: {
+    host: "0.0.0.0",
+    port: 3000,
   },
 
   vite: {
     server: {
       hmr: {
-        clientPort: 3000
-      }
-    }
+        clientPort: 3000,
+      },
+    },
   },
 
-  modules: ['nuxt-auth-utils'],
-})
+  modules: ["nuxt-auth-utils"],
+});

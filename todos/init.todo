@@ -5,6 +5,8 @@ Project: Pushup Tracker
 ✔ [ ] Add date and hour minute to creation of entry @done(25-01-08 01:21)
 ✔ [ ] Create a simple leaderboard to calculate the overall pushups @done(25-01-08 01:21)
 ✔ [ ] Refactor to table view with number of pushups and user name @done(25-01-08 01:21)
-- Tidy up the filter option, user, all
+✔ Tidy up the filter option, user, all @done(25-01-08 01:40)
+✔ Add hosts option to nuxt config for local testing @done(25-01-08 01:50)
+✔ Logout and better log in @done(25-01-08 02:01)
 - [ ] Add Nuxt UI components and styling
 - [ ] Create responsive layout with proper spacing

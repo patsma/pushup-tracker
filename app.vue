@@ -1,6 +1,7 @@
 <script setup>
 import { useDatabase } from "~/composables/useDatabase";
 import { ref, watch } from "vue";
+import UserAuth from "~/components/UserAuth.vue";
 
 // State management
 const todoList = ref([]);
@@ -36,8 +37,10 @@ watch(username, (newName) => {
 <template>
   <section class="app-container">
     <header class="main-header">
-      <h1>Pushup Tracker</h1>
-      <p>Logged in as: {{ username }}</p>
+      <div class="header-content">
+        <h1>Pushup Tracker</h1>
+        <UserAuth />
+      </div>
     </header>
 
     <main class="main-content">
@@ -75,5 +78,18 @@ watch(username, (newName) => {
 .todoapp {
   background: none;
   box-shadow: none;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+.main-header h1 {
+  margin: 0;
 }
 </style>
