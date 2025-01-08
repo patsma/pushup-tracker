@@ -19,19 +19,7 @@ database.todos
     todoList.value = todos;
   });
 
-// Ask for username if not set
-if (!username.value) {
-  const input = prompt("Enter your nickname:");
-  if (input) {
-    username.value = input.trim() || "Anonymous";
-    localStorage.setItem("username", username.value);
-  }
-}
-
 // Watch for username changes
-watch(username, (newName) => {
-  localStorage.setItem("username", newName);
-});
 </script>
 
 <template>
