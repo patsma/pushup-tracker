@@ -27,20 +27,25 @@ const leaderboard = computed(() => {
 </script>
 
 <template>
-  <div class="leaderboard">
-    <h2>Leaderboard</h2>
-    <div class="leaderboard-list">
+  <UCard>
+    <template #header>
+      <h2 class="text-xl font-semibold">Leaderboard</h2>
+    </template>
+
+    <div class="space-y-2">
       <div
         v-for="entry in leaderboard"
         :key="entry.username"
-        class="leaderboard-entry"
+        class="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
       >
-        <span class="rank">#{{ entry.rank }}</span>
-        <span class="username">{{ entry.username }}</span>
-        <span class="total">{{ entry.total }} pushups</span>
+        <div class="flex items-center gap-4">
+          <span class="text-primary-500 font-bold">#{{ entry.rank }}</span>
+          <span>{{ entry.username }}</span>
+        </div>
+        <span class="font-bold">{{ entry.total }} pushups</span>
       </div>
     </div>
-  </div>
+  </UCard>
 </template>
 
 <style scoped>

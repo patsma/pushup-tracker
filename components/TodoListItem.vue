@@ -23,14 +23,27 @@ const formattedDate = computed(() => {
 </script>
 
 <template>
-  <li>
-    <div class="pushup-entry">
-      <span class="pushup-count">{{ todo.pushupCount }} pushups</span>
-      <span class="creator-info">by {{ todo.createdBy }}</span>
-      <span class="timestamp">{{ formattedDate }}</span>
-      <button v-if="canDelete" class="destroy" @click="deleteTodo"></button>
+  <UCard class="mb-2">
+    <div class="flex items-center justify-between">
+      <div class="flex items-center gap-4">
+        <span class="text-lg font-bold">{{ todo.pushupCount }} pushups</span>
+        <span class="text-gray-500 dark:text-gray-400"
+          >by {{ todo.createdBy }}</span
+        >
+      </div>
+      <div class="flex items-center gap-4">
+        <span class="text-sm text-gray-400">{{ formattedDate }}</span>
+        <UButton
+          v-if="canDelete"
+          color="red"
+          variant="ghost"
+          icon="i-heroicons-x-mark"
+          size="sm"
+          @click="deleteTodo"
+        />
+      </div>
     </div>
-  </li>
+  </UCard>
 </template>
 
 <style scoped>

@@ -23,5 +23,16 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["nuxt-auth-utils"],
+  modules: ["nuxt-auth-utils", "@nuxt/ui", "@nuxtjs/color-mode"],
+
+  colorMode: {
+    preference: "system",
+    fallback: "light",
+    classSuffix: "",
+  },
+
+  ui: {
+    global: true,
+    icons: ["heroicons"],
+  },
 });

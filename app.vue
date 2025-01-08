@@ -23,20 +23,23 @@ database.todos
 </script>
 
 <template>
-  <section class="app-container">
-    <header class="main-header">
-      <div class="header-content">
-        <h1>Pushup Tracker</h1>
-        <UserAuth />
+  <UContainer class="py-8">
+    <header class="mb-8">
+      <div class="flex items-center justify-between mb-4">
+        <h1 class="text-3xl font-bold">Pushup Tracker</h1>
+        <div class="flex items-center gap-4">
+          <UColorModeButton />
+          <UserAuth />
+        </div>
       </div>
     </header>
 
-    <main class="main-content">
+    <main class="space-y-8">
       <PushupEntry />
       <TodoList :todo-list="todoList" />
       <LeaderBoard />
     </main>
-  </section>
+  </UContainer>
 </template>
 
 <style>

@@ -18,6 +18,8 @@
     "rxjs": "^7.8.1",
     "todomvc-app-css": "^2.4.3",
     "vue": "latest",
-    "vue-router": "latest"
+    "vue-router": "latest",
+    "@nuxt/ui": "^2.14.1",
+    "@nuxtjs/color-mode": "^3.3.2"
   }
 }

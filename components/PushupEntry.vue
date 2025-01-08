@@ -18,10 +18,15 @@ async function addPushups(count) {
 </script>
 
 <template>
-  <div class="pushup-buttons">
-    <button @click="addPushups(5)" class="pushup-btn">5 Pushups</button>
-    <button @click="addPushups(10)" class="pushup-btn">10 Pushups</button>
-    <button @click="addPushups(20)" class="pushup-btn">20 Pushups</button>
+  <div class="flex justify-center gap-4">
+    <UButton
+      v-for="count in [5, 10, 20]"
+      :key="count"
+      color="primary"
+      @click="addPushups(count)"
+    >
+      {{ count }} Pushups
+    </UButton>
   </div>
 </template>
 

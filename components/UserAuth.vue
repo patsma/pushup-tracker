@@ -1,7 +1,6 @@
 <script setup>
 import { ref } from "vue";
 
-
 const username = ref(localStorage.getItem("username") || "");
 const showLoginModal = ref(!username.value);
 
@@ -27,30 +26,47 @@ function closeModal() {
 </script>
 
 <template>
-  <!-- Login Modal -->
-  <div v-if="showLoginModal" class="modal-overlay">
-    <div class="modal-content" @click.stop>
-      <h2>Welcome to Pushup Tracker!</h2>
-      <p>Please enter your nickname to start tracking pushups</p>
-      <div class="input-group">
-        <input
+  <UModal
+    v-if="showLoginModal"
+    v-model="showLoginModal"
+    :ui="{ width: 'sm' }"
+    :prevent-close="true"
+  >
+    <UCard>
+      <template #header>
+        <h3 class="text-xl font-semibold">Welcome to Pushup Tracker!</h3>
+      </template>
+
+      <div class="space-y-4">
+        <p class="text-gray-500 dark:text-gray-400">
+          Please enter your nickname to start tracking pushups
+        </p>
+        <UInput
           v-model="username"
-          type="text"
           placeholder="Enter your nickname"
           @keyup.enter="login"
           autofocus
         />
-        <button @click="login" :disabled="!username.trim()">
-          Start Training
-        </button>
       </div>
-    </div>
-  </div>
 
-  <!-- User Menu -->
-  <div v-else class="user-menu">
-    <span class="username">{{ username }}</span>
-    <button @click="logout" class="logout-btn">Logout</button>
+      <template #footer>
+        <UButton color="primary" @click="login" :disabled="!username.trim()">
+          Start Training
+        </UButton>
+      </template>
+    </UCard>
+  </UModal>
+
+  <div v-else class="flex items-center gap-4">
+    <span class="text-gray-700 dark:text-gray-300">{{ username }}</span>
+    <UButton
+      color="gray"
+      variant="ghost"
+      icon="i-heroicons-arrow-right-on-rectangle"
+      @click="logout"
+    >
+      Logout
+    </UButton>
   </div>
 </template>
 
