@@ -71,7 +71,7 @@ export const useDatabase = async () => {
           type: "object",
           properties: {
             id: { type: "string", maxLength: 20 },
-            name: { type: "string" },
+            pushupCount: { type: "number", minimum: 0 },
             state: { type: "string", enum: ["open", "done"], maxLength: 10 },
             lastChange: {
               type: "number",
@@ -83,9 +83,12 @@ export const useDatabase = async () => {
               type: "string",
               maxLength: 50,
             },
+            timestamp: {
+              type: "number"
+            }
           },
-          required: ["id", "name", "state", "lastChange", "createdBy"],
-          indexes: ["state", ["state", "lastChange"]],
+          required: ["id", "pushupCount", "state", "lastChange", "createdBy", "timestamp"],
+          indexes: ["state", ["state", "lastChange"], "createdBy"],
         },
         conflictHandler,
       },

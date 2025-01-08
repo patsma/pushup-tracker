@@ -40,7 +40,7 @@ watch(username, (newName) => {
       <p>Logged in as: {{ username }}</p>
     </header>
     <header class="header">
-      <NewTodoItem />
+      <PushupEntry />
     </header>
     <section class="main">
       <TodoList :todo-list="todoList" />
