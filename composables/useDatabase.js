@@ -99,22 +99,7 @@ export const useDatabase = async () => {
       return d;
     }, true);
 
-    await database.todos.bulkInsert([
-      {
-        id: "todo-0",
-        name: "👋 Hello Nuxt Nation 2024!",
-        lastChange: 0,
-        state: "open",
-        createdBy: "System",
-      },
-      {
-        id: "todo-1",
-        name: "👩‍🚀 Let's explore the future of local-first apps!",
-        lastChange: 0,
-        state: "open",
-        createdBy: "System",
-      },
-    ]);
+  
 
     replicateWebRTC({
       collection: database.todos,
