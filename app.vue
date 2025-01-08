@@ -43,7 +43,10 @@ watch(username, (newName) => {
       <PushupEntry />
     </header>
     <section class="main">
-      <TodoList :todo-list="todoList" />
+      <div class="content-wrapper">
+        <TodoList :todo-list="todoList" />
+        <LeaderBoard />
+      </div>
     </section>
   </section>
 </template>
@@ -82,5 +85,20 @@ a {
 
 a:visited {
   color: #b83f45;
+}
+
+.content-wrapper {
+  display: grid;
+  grid-template-columns: 1fr 300px;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (max-width: 768px) {
+  .content-wrapper {
+    grid-template-columns: 1fr;
+  }
 }
 </style>

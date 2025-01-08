@@ -33,8 +33,6 @@ function clearCompleted() {
 
 <template>
   <div>
-    <p>I'm here</p>
-
     <input id="toggle-all" class="toggle-all" type="checkbox" />
     <label for="toggle-all">Mark all as complete</label>
     <ul class="todo-list">

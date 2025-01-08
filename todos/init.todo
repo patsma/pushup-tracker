@@ -2,11 +2,9 @@ Project: Pushup Tracker
 
 ✔ [ ] Ensure the created by is displaying in the list @started(25-01-07 04:39) @done(25-01-07 04:51) @lasted(12m35s)
 ✔ Add 5,10, 20 default pushup options @done(25-01-08 01:00)
-- [ ] Refactor to table view with number of pushups and user name
+✔ [ ] Add date and hour minute to creation of entry @done(25-01-08 01:21)
+✔ [ ] Create a simple leaderboard to calculate the overall pushups @done(25-01-08 01:21)
+✔ [ ] Refactor to table view with number of pushups and user name @done(25-01-08 01:21)
+- Tidy up the filter option, user, all
 - [ ] Add Nuxt UI components and styling
 - [ ] Create responsive layout with proper spacing
-- [ ] Add date/time display for each todo
-- [ ] Implement proper typography and colors
-- [ ] Add date and hour minute to creation of entry
-- [ ] Ensure input takes only number
-- [ ] Create a simple leaderboard to calculate the overall pushups
