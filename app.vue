@@ -34,71 +34,46 @@ watch(username, (newName) => {
 </script>
 
 <template>
-  <section class="todoapp">
-    <header>
+  <section class="app-container">
+    <header class="main-header">
       <h1>Pushup Tracker</h1>
       <p>Logged in as: {{ username }}</p>
     </header>
-    <header class="header">
+
+    <main class="main-content">
       <PushupEntry />
-    </header>
-    <section class="main">
-      <div class="content-wrapper">
-        <TodoList :todo-list="todoList" />
-        <LeaderBoard />
-      </div>
-    </section>
+      <TodoList :todo-list="todoList" />
+      <LeaderBoard />
+    </main>
   </section>
 </template>
 
 <style>
-@import "todomvc-app-css/index.css";
-
-.todoapp h1 {
-  top: -80px;
-  font-size: 40px;
-}
-
-.description {
-  padding: 15px;
-  margin-bottom: 10px;
-}
-
-code {
-  display: block;
-  padding: 15px;
-
-  /**
-     * https://css-tricks.com/better-line-breaks-for-long-urls/
-     */
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
-}
-
-a {
-  color: #b83f45;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:visited {
-  color: #b83f45;
-}
-
-.content-wrapper {
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 2rem;
-  max-width: 1200px;
+.app-container {
+  max-width: 800px;
   margin: 0 auto;
   padding: 1rem;
 }
 
-@media (max-width: 768px) {
-  .content-wrapper {
-    grid-template-columns: 1fr;
-  }
+.main-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.main-header h1 {
+  color: #b83f45;
+  margin-bottom: 0.5rem;
+}
+
+.main-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Remove old TodoMVC styles that we don't need anymore */
+.todoapp {
+  background: none;
+  box-shadow: none;
 }
 </style>
