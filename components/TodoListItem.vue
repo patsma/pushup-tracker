@@ -1,6 +1,7 @@
 <script setup>
 import { computed, ref, onMounted } from "vue";
 import { useAppAnimations } from "~/composables/useAppAnimations";
+import gsap from "gsap";
 
 const props = defineProps({
   todo: {
@@ -14,6 +15,13 @@ const canDelete = computed(() => props.todo.createdBy === username);
 
 async function deleteTodo() {
   if (canDelete.value) {
+    await gsap.to(itemRef.value, {
+      height: 0,
+      opacity: 0,
+      marginBottom: 0,
+      duration: 0.3,
+      ease: "power2.inOut",
+    });
     await props.todo.remove();
   }
 }

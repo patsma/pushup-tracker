@@ -38,13 +38,13 @@ const displayedTodoList = computed(() => {
       </UButton>
     </div>
 
-    <div class="entries-list">
+    <ul class="entries-list list-none">
       <TodoListItem
         v-for="todo in displayedTodoList"
         :todo="todo"
         :key="todo.id"
       />
-    </div>
+    </ul>
   </div>
 </template>
 
@@ -67,6 +67,13 @@ const displayedTodoList = computed(() => {
 .entries-list {
   max-height: 40vh;
   overflow-y: auto;
+  list-style: none;
+  padding: 0;
+}
+
+.entries-list li::marker {
+  display: none;
+  content: "";
 }
 
 /* Custom scrollbar */
