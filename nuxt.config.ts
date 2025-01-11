@@ -35,4 +35,14 @@ export default defineNuxtConfig({
     global: true,
     icons: ["heroicons"],
   },
+
+  app: {
+    head: {
+      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+      meta: [
+        { name: "format-detection", content: "telephone=no" },
+        { name: "theme-color", content: "#121212" },
+      ],
+    },
+  },
 });

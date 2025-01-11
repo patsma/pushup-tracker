@@ -11,8 +11,8 @@ Project: Pushup Tracker
 ✔ [ ] Add Nuxt UI components and styling @done(25-01-08 03:07)
 ✔ [ ] Create responsive layout with proper spacing @done(25-01-08 03:07)
 ✔ Add cursor rules with proper description to the project @done(25-01-11 01:42)
-☐ Mobile login breaks layout, needs to be responsive
-- Mobile login should be centered - keyboard covers it
+✔ Mobile login breaks layout, needs to be responsive @done(25-01-11 02:22)
+✔ Mobile login should be centered - keyboard covers it @done(25-01-11 02:22)
 - Add simple GSAP animation to the pushup entry
 - Add footer info 
 - Add Basic SEO 

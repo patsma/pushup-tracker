@@ -29,7 +29,13 @@ function closeModal() {
   <UModal
     v-if="showLoginModal"
     v-model="showLoginModal"
-    :ui="{ width: 'sm' }"
+    :ui="{
+      wrapper:
+        'fixed inset-0 flex align-start sm:items-center justify-center pt-16 sm:pt-0',
+      container: 'relative w-full sm:w-auto items-start  ',
+      width: 'w-11/12 sm:w-full max-w-md ',
+      base: 'overflow-visible',
+    }"
     :prevent-close="true"
   >
     <UCard>
@@ -50,7 +56,12 @@ function closeModal() {
       </div>
 
       <template #footer>
-        <UButton color="primary" @click="login" :disabled="!username.trim()">
+        <UButton
+          color="primary"
+          @click="login"
+          :disabled="!username.trim()"
+          class="w-full sm:w-auto"
+        >
           Start Training
         </UButton>
       </template>

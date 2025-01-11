@@ -18,7 +18,7 @@ async function addPushups(count) {
 </script>
 
 <template>
-  <div class="flex justify-center gap-4">
+  <div class="flex flex-wrap justify-center gap-4">
     <UButton
       v-for="count in [5, 10, 20, 50, 100]"
       :key="count"
