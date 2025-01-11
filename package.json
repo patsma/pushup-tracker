@@ -10,7 +10,10 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@nuxt/ui": "^2.14.1",
+    "@nuxtjs/color-mode": "^3.3.2",
     "@vite-pwa/nuxt": "^0.10.6",
+    "gsap": "^3.12.5",
     "node-datachannel": "^0.21.0",
     "nuxt": "^3.14.159",
     "nuxt-auth-utils": "^0.5.7",
@@ -18,8 +21,6 @@
     "rxjs": "^7.8.1",
     "todomvc-app-css": "^2.4.3",
     "vue": "latest",
-    "vue-router": "latest",
-    "@nuxt/ui": "^2.14.1",
-    "@nuxtjs/color-mode": "^3.3.2"
+    "vue-router": "latest"
   }
 }

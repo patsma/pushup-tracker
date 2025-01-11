@@ -1,9 +1,11 @@
 <script setup>
 import { ref, computed, watch } from "vue";
 import { useDatabase } from "~/composables/useDatabase";
+import { useAppAnimations } from "~/composables/useAppAnimations";
 
 const database = await useDatabase();
 const entries = ref([]);
+const { animateNumber } = useAppAnimations();
 
 // Subscribe to database changes
 database.todos.find().$.subscribe((todos) => {
@@ -24,6 +26,25 @@ const leaderboard = computed(() => {
     .sort((a, b) => b.total - a.total)
     .map((entry, index) => ({ ...entry, rank: index + 1 }));
 });
+
+// Watch for changes in total pushups
+watch(
+  () => leaderboard.value,
+  (newVal, oldVal) => {
+    if (oldVal) {
+      newVal.forEach((entry, index) => {
+        const oldEntry = oldVal[index];
+        if (oldEntry && entry.total !== oldEntry.total) {
+          const el = document.querySelector(`[data-user="${entry.username}"]`);
+          if (el) {
+            animateNumber(el, oldEntry.total, entry.total);
+          }
+        }
+      });
+    }
+  },
+  { deep: true }
+);
 </script>
 
 <template>
@@ -42,7 +63,9 @@ const leaderboard = computed(() => {
           <span class="text-primary-500 font-bold">#{{ entry.rank }}</span>
           <span>{{ entry.username }}</span>
         </div>
-        <span class="font-bold">{{ entry.total }} </span>
+        <span :data-user="entry.username" class="total"
+          >{{ entry.total }} pushups</span
+        >
       </div>
     </div>
   </UCard>

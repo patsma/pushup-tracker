@@ -1,11 +1,14 @@
 <script setup>
 import { useDatabase } from "~/composables/useDatabase";
-import { ref, watch } from "vue";
+import { ref, onMounted } from "vue";
+import { useAppAnimations } from "~/composables/useAppAnimations";
 import UserAuth from "~/components/UserAuth.vue";
+import AppLoader from "~/components/AppLoader.vue";
 
 // State management
 const todoList = ref([]);
 const username = ref(localStorage.getItem("username") || "");
+const { initializePageAnimation } = useAppAnimations();
 
 // Use your database here
 const database = await useDatabase();
@@ -19,13 +22,17 @@ database.todos
     todoList.value = todos;
   });
 
-// Watch for username changes
+onMounted(() => {
+  // Initialize animations after everything is loaded
+  initializePageAnimation();
+});
 </script>
 
 <template>
+  <AppLoader />
   <UContainer class="py-8 flex flex-col items-center gap-4">
     <h1 class="text-3xl font-bold">Pushup Tracker</h1>
-    <header class="mb-8">
+    <header class="mb-8 user-controls">
       <div class="flex items-center justify-between mb-4">
         <div class="flex items-center gap-4">
           <UColorModeButton />
@@ -35,9 +42,15 @@ database.todos
     </header>
 
     <main class="space-y-8 w-full lg:max-w-3xl">
-      <PushupEntry />
-      <TodoList :todo-list="todoList" />
-      <LeaderBoard />
+      <div class="pushup-buttons">
+        <PushupEntry />
+      </div>
+      <div class="pushups-container">
+        <TodoList :todo-list="todoList" />
+      </div>
+      <div class="leaderboard">
+        <LeaderBoard />
+      </div>
     </main>
   </UContainer>
 </template>

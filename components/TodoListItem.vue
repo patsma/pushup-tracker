@@ -1,5 +1,6 @@
 <script setup>
-import { computed } from "vue";
+import { computed, ref, onMounted } from "vue";
+import { useAppAnimations } from "~/composables/useAppAnimations";
 
 const props = defineProps({
   todo: {
@@ -20,30 +21,41 @@ async function deleteTodo() {
 const formattedDate = computed(() => {
   return new Date(props.todo.timestamp).toLocaleString();
 });
+
+const { animateNewEntry } = useAppAnimations();
+const itemRef = ref(null);
+
+onMounted(() => {
+  if (itemRef.value) {
+    animateNewEntry(itemRef.value);
+  }
+});
 </script>
 
 <template>
-  <UCard class="mb-2">
-    <div class="flex items-center justify-between">
-      <div class="flex items-center gap-4">
-        <span class="text-lg font-bold">{{ todo.pushupCount }}</span>
-        <span class="text-gray-500 dark:text-gray-400"
-          >by {{ todo.createdBy }}</span
-        >
+  <li ref="itemRef">
+    <UCard class="mb-2">
+      <div class="flex items-center justify-between">
+        <div class="flex items-center gap-4">
+          <span class="text-lg font-bold">{{ todo.pushupCount }}</span>
+          <span class="text-gray-500 dark:text-gray-400"
+            >by {{ todo.createdBy }}</span
+          >
+        </div>
+        <div class="flex items-center gap-4">
+          <span class="text-sm text-gray-400">{{ formattedDate }}</span>
+          <UButton
+            v-if="canDelete"
+            color="red"
+            variant="ghost"
+            icon="i-heroicons-x-mark"
+            size="sm"
+            @click="deleteTodo"
+          />
+        </div>
       </div>
-      <div class="flex items-center gap-4">
-        <span class="text-sm text-gray-400">{{ formattedDate }}</span>
-        <UButton
-          v-if="canDelete"
-          color="red"
-          variant="ghost"
-          icon="i-heroicons-x-mark"
-          size="sm"
-          @click="deleteTodo"
-        />
-      </div>
-    </div>
-  </UCard>
+    </UCard>
+  </li>
 </template>
 
 <style scoped>
