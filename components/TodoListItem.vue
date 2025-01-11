@@ -42,27 +42,28 @@ onMounted(() => {
 
 <template>
   <li ref="itemRef">
-    <UCard class="mb-2">
-      <div class="flex items-center justify-between">
-        <div class="flex items-center gap-4">
-          <span class="text-lg font-bold">{{ todo.pushupCount }}</span>
-          <span class="text-gray-500 dark:text-gray-400"
-            >by {{ todo.createdBy }}</span
-          >
-        </div>
-        <div class="flex items-center gap-4">
-          <span class="text-sm text-gray-400">{{ formattedDate }}</span>
-          <UButton
-            v-if="canDelete"
-            color="red"
-            variant="ghost"
-            icon="i-heroicons-x-mark"
-            size="sm"
-            @click="deleteTodo"
-          />
-        </div>
+    <div
+      class="bg-gray-800 rounded-lg p-4 flex items-center justify-between hover:bg-gray-750 transition-colors duration-200"
+    >
+      <div class="flex items-center gap-3">
+        <span class="text-2xl font-bold text-emerald-400">{{
+          todo.pushupCount
+        }}</span>
+        <span class="text-gray-400">by {{ todo.createdBy }}</span>
       </div>
-    </UCard>
+      <div class="flex items-center gap-4">
+        <span class="text-sm text-gray-500">{{ formattedDate }}</span>
+        <UButton
+          v-if="canDelete"
+          color="red"
+          variant="ghost"
+          icon="i-heroicons-x-mark"
+          size="sm"
+          @click="deleteTodo"
+          class="text-gray-400 hover:text-white"
+        />
+      </div>
+    </div>
   </li>
 </template>
 

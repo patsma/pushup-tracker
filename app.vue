@@ -30,29 +30,33 @@ onMounted(() => {
 
 <template>
   <AppLoader />
-  <UContainer class="py-8 flex flex-col items-center gap-4">
-    <h1 class="text-3xl font-bold">Pushup Tracker</h1>
-    <header class="mb-8 user-controls">
-      <div class="flex items-center justify-between mb-4">
-        <div class="flex items-center gap-4">
+  <div class="min-h-screen bg-gray-900 text-white p-6">
+    <header class="max-w-2xl mx-auto">
+      <div class="flex items-center justify-between mb-12">
+        <h1
+          class="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+        >
+          Pushups
+        </h1>
+        <div class="flex items-center gap-4 user-controls">
           <UColorModeButton />
           <UserAuth />
         </div>
       </div>
-    </header>
 
-    <main class="space-y-8 w-full lg:max-w-3xl">
-      <div class="pushup-buttons">
-        <PushupEntry />
-      </div>
-      <div class="pushups-container">
-        <TodoList :todo-list="todoList" />
-      </div>
-      <div class="leaderboard">
-        <LeaderBoard />
-      </div>
-    </main>
-  </UContainer>
+      <main class="space-y-8">
+        <div class="pushup-buttons">
+          <PushupEntry />
+        </div>
+        <div class="pushups-container">
+          <TodoList :todo-list="todoList" />
+        </div>
+        <div class="leaderboard">
+          <LeaderBoard />
+        </div>
+      </main>
+    </header>
+  </div>
 </template>
 
 <style>

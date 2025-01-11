@@ -21,24 +21,34 @@ const displayedTodoList = computed(() => {
 
 <template>
   <div class="pushups-container">
-    <div class="filters">
+    <div class="flex gap-3 mb-8">
       <UButton
-        color="primary"
-        :class="{ selected: filter === 'all' }"
+        color="gray"
+        :class="[
+          'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
+          filter === 'all'
+            ? 'bg-gray-700 text-white'
+            : 'bg-gray-800 text-gray-400 hover:bg-gray-700',
+        ]"
         @click="filter = 'all'"
       >
         All Entries
       </UButton>
       <UButton
         color="primary"
+        :class="[
+          'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
+          filter === 'me'
+            ? 'bg-emerald-600 text-white'
+            : 'bg-gray-800 text-gray-400 hover:bg-gray-700',
+        ]"
         @click="filter = 'me'"
-        :class="{ selected: filter === 'me' }"
       >
         My Entries
       </UButton>
     </div>
 
-    <ul class="entries-list list-none">
+    <ul class="space-y-3 list-none">
       <TodoListItem
         v-for="todo in displayedTodoList"
         :todo="todo"

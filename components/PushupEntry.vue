@@ -18,12 +18,13 @@ async function addPushups(count) {
 </script>
 
 <template>
-  <div class="flex flex-wrap justify-center gap-4">
+  <div class="grid grid-cols-5 gap-3">
     <UButton
       v-for="count in [5, 10, 20, 50, 100]"
       :key="count"
       color="primary"
       @click="addPushups(count)"
+      class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-medium transition-colors duration-200"
     >
       {{ count }}
     </UButton>

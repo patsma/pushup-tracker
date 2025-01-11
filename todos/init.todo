@@ -13,10 +13,10 @@ Project: Pushup Tracker
 ✔ Add cursor rules with proper description to the project @done(25-01-11 01:42)
 ✔ Mobile login breaks layout, needs to be responsive @done(25-01-11 02:22)
 ✔ Mobile login should be centered - keyboard covers it @done(25-01-11 02:22)
-- Add simple GSAP animation to the pushup entry
+✔ Add simple GSAP animation to the pushup entry @done(25-01-11 03:49)
+✔ Add simplest loader @done(25-01-11 03:49)
 - Add footer info 
 - Add Basic SEO 
-- Add simplest loader
 - Generate logo idea
 - Animate logo
 - Restore TypeScript

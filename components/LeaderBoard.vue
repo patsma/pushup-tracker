@@ -48,24 +48,35 @@ watch(
 </script>
 
 <template>
-  <UCard>
+  <UCard class="bg-gray-800 rounded-lg p-6">
     <template #header>
-      <h2 class="text-xl font-semibold">Leaderboard</h2>
+      <h2
+        class="text-xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent"
+      >
+        Leaderboard
+      </h2>
     </template>
 
-    <div class="space-y-2">
+    <div class="space-y-4">
       <div
         v-for="entry in leaderboard"
         :key="entry.username"
-        class="flex items-center justify-between p-2 rounded-lg hover:bg-gray-50 dark:hover:bg-gray-800"
+        class="flex items-center justify-between"
       >
-        <div class="flex items-center gap-4">
-          <span class="text-primary-500 font-bold">#{{ entry.rank }}</span>
-          <span>{{ entry.username }}</span>
+        <div class="flex items-center gap-3">
+          <span
+            :class="[
+              'text-sm font-medium',
+              entry.rank === 1 ? 'text-emerald-400' : 'text-gray-400',
+            ]"
+          >
+            #{{ entry.rank }}
+          </span>
+          <span class="font-medium">{{ entry.username }}</span>
         </div>
-        <span :data-user="entry.username" class="total"
-          >{{ entry.total }} pushups</span
-        >
+        <span :data-user="entry.username" class="text-gray-400">
+          {{ entry.total }} pushups
+        </span>
       </div>
     </div>
   </UCard>
