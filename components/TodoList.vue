@@ -25,9 +25,9 @@ const displayedTodoList = computed(() => {
       <UButton
         color="gray"
         :class="[
-          'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
+          'px-4 py-2 rounded-lg font-medium transition-all duration-200',
           filter === 'all'
-            ? 'bg-gray-700 text-white'
+            ? 'bg-gray-700 text-white scale-105 shadow-lg'
             : 'bg-gray-800 text-gray-400 hover:bg-gray-700',
         ]"
         @click="filter = 'all'"
@@ -37,9 +37,9 @@ const displayedTodoList = computed(() => {
       <UButton
         color="primary"
         :class="[
-          'px-4 py-2 rounded-lg font-medium transition-colors duration-200',
+          'px-4 py-2 rounded-lg font-medium transition-all duration-200',
           filter === 'me'
-            ? 'bg-emerald-600 text-white'
+            ? 'bg-emerald-600 text-white scale-105 shadow-lg'
             : 'bg-gray-800 text-gray-400 hover:bg-gray-700',
         ]"
         @click="filter = 'me'"
