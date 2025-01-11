@@ -8,5 +8,14 @@ Project: Pushup Tracker
 ✔ Tidy up the filter option, user, all @done(25-01-08 01:40)
 ✔ Add hosts option to nuxt config for local testing @done(25-01-08 01:50)
 ✔ Logout and better log in @done(25-01-08 02:01)
-- [ ] Add Nuxt UI components and styling
-- [ ] Create responsive layout with proper spacing
+✔ [ ] Add Nuxt UI components and styling @done(25-01-08 03:07)
+✔ [ ] Create responsive layout with proper spacing @done(25-01-08 03:07)
+✔ Add cursor rules with proper description to the project @done(25-01-11 01:42)
+☐ Mobile login breaks layout, needs to be responsive
+- Mobile login should be centered - keyboard covers it
+- Add simple GSAP animation to the pushup entry
+- Add footer info 
+- Add Basic SEO 
+- Add simplest loader
+- Generate logo idea
+- Animate logo
