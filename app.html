@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <html {{ HTML_ATTRS }}>
   <head {{ HEAD_ATTRS }}>
-    {{ HEAD }}
     <style>
+      /* Immediate styles to prevent FOUC */
+      html, body { background: #fff; margin: 0; }
+      @media (prefers-color-scheme: dark) {
+        html, body { background: #09090b; }
+      }
       .initial-loader {
         position: fixed;
         inset: 0;
-        background: #fff;
+        background: inherit;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -40,9 +44,10 @@
         100% { transform: rotate(360deg); }
       }
     </style>
+    {{ HEAD }}
   </head>
   <body {{ BODY_ATTRS }}>
-    <div class="initial-loader">
+    <div id="app-loader" class="initial-loader">
       <div class="spinner">
         <div></div>
         <div></div>
