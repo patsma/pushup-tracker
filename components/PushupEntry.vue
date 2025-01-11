@@ -24,7 +24,7 @@ async function addPushups(count) {
       :key="count"
       color="primary"
       @click="addPushups(count)"
-      class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-medium transition-colors duration-200"
+      class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 rounded-lg font-medium transition-colors duration-200 flex items-center justify-center"
     >
       {{ count }}
     </UButton>

@@ -46,10 +46,10 @@ onMounted(() => {
       class="bg-gray-800 rounded-lg p-4 flex items-center justify-between hover:bg-gray-750 transition-colors duration-200"
     >
       <div class="flex items-center gap-3">
-        <span class="text-2xl font-bold text-emerald-400">{{
+        <span class="text-2xl font-bold w-12 text-emerald-400">{{
           todo.pushupCount
         }}</span>
-        <span class="text-gray-400">by {{ todo.createdBy }}</span>
+        <span class="text-gray-400"> &nbsp;{{ todo.createdBy }}</span>
       </div>
       <div class="flex items-center gap-4">
         <span class="text-sm text-gray-500">{{ formattedDate }}</span>

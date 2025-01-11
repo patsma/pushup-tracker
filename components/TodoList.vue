@@ -48,7 +48,9 @@ const displayedTodoList = computed(() => {
       </UButton>
     </div>
 
-    <ul class="space-y-3 list-none">
+    <ul
+      class="space-y-3 list-none max-h-[30vh] overflow-y-auto custom-scrollbar"
+    >
       <TodoListItem
         v-for="todo in displayedTodoList"
         :todo="todo"
@@ -98,5 +100,28 @@ const displayedTodoList = computed(() => {
 .entries-list::-webkit-scrollbar-thumb {
   background: #b83f45;
   /* border-radius: 4px; */
+}
+
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #475569 #1f2937;
+}
+
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #1f2937;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #475569;
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #64748b;
 }
 </style>

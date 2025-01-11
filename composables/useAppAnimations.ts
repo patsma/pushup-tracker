@@ -39,8 +39,8 @@ export const useAppAnimations = () => {
     gsap.from(el, {
       y: -20,
       opacity: 0,
-      duration: 0.4,
-      ease: "power2.out",
+      duration: 0.6,
+      ease: "sine.out",
     });
   };
 
