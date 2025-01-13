@@ -15,7 +15,9 @@ Project: Pushup Tracker
 ✔ Mobile login should be centered - keyboard covers it @done(25-01-11 02:22)
 ✔ Add simple GSAP animation to the pushup entry @done(25-01-11 03:49)
 ✔ Add simplest loader @done(25-01-11 03:49)
-- Add footer info 
+✔ Add footer info @done(25-01-13 01:31)
+
+✔ Enable to hide the footer @done(25-01-13 02:27)
 - Add Basic SEO 
 - Generate logo idea
 - Animate logo

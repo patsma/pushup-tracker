@@ -1,5 +1,19 @@
 <template>
+  <!-- Fixed toggle button that always stays visible -->
+  <button
+    @click="toggleFooter"
+    class="fixed bottom-4 right-4 p-2 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors z-50"
+    aria-label="Toggle footer"
+  >
+    <Icon
+      :name="isHidden ? 'ri:arrow-up-s-line' : 'ri:arrow-down-s-line'"
+      class="w-5 h-5 text-gray-400"
+    />
+  </button>
+
+  <!-- Footer content -->
   <footer
+    ref="footerRef"
     class="fixed bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800"
   >
     <div class="max-w-7xl mx-auto px-4 py-6">
@@ -109,10 +123,34 @@
     </div>
   </footer>
 
-  <!-- Spacer to prevent content from being hidden behind fixed footer -->
-  <div class="h-64"></div>
+  <!-- Spacer -->
+  <div
+    :class="['transition-all duration-500', isHidden ? 'h-16' : 'h-64']"
+  ></div>
 </template>
 
 <script setup>
-// The Icon component is automatically imported by the Nuxt Icon module
+import { ref, onMounted } from "vue";
+import gsap from "gsap";
+
+const footerRef = ref(null);
+const isHidden = ref(localStorage.getItem("footerHidden") === "true");
+
+onMounted(() => {
+  // Initial position
+  if (isHidden.value) {
+    gsap.set(footerRef.value, { yPercent: 100 });
+  }
+});
+
+function toggleFooter() {
+  isHidden.value = !isHidden.value;
+  localStorage.setItem("footerHidden", isHidden.value);
+
+  gsap.to(footerRef.value, {
+    yPercent: isHidden.value ? 100 : 0,
+    duration: 0.5,
+    ease: "power2.inOut",
+  });
+}
 </script>

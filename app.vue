@@ -64,6 +64,7 @@ onMounted(() => {
 .app-container {
   max-width: 800px;
   margin: 0 auto;
+  height: 100%;
   padding: 1rem;
 }
 
