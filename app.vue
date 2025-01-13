@@ -26,6 +26,47 @@ onMounted(() => {
   // Initialize animations after everything is loaded
   initializePageAnimation();
 });
+
+useHead({
+  title: "Pushup Tracker - Real-time Workout Tracking",
+  meta: [
+    {
+      name: "description",
+      content:
+        "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
+    },
+    {
+      name: "keywords",
+      content:
+        "pushup tracker, workout tracker, fitness app, exercise tracking",
+    },
+
+    // Open Graph / Facebook
+    { property: "og:type", content: "website" },
+    {
+      property: "og:title",
+      content: "Pushup Tracker - Real-time Workout Tracking",
+    },
+    {
+      property: "og:description",
+      content: "Track your daily pushups and compete with friends in real-time",
+    },
+
+    // Twitter
+    { name: "twitter:card", content: "summary_large_image" },
+    {
+      name: "twitter:title",
+      content: "Pushup Tracker - Real-time Workout Tracking",
+    },
+    {
+      name: "twitter:description",
+      content: "Track your daily pushups and compete with friends in real-time",
+    },
+  ],
+  link: [
+    { rel: "canonical", href: "https://pushup-tracker.netlify.app/" },
+  ],
+});
 </script>
 
 <template>

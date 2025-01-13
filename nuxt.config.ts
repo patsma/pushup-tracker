@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ["nuxt-auth-utils", "@nuxt/ui", "@nuxtjs/color-mode"],
+  modules: ["nuxt-auth-utils", "@nuxt/ui", "@nuxtjs/color-mode", "@nuxtjs/seo"],
 
   colorMode: {
     preference: "system",
@@ -52,4 +52,29 @@ export default defineNuxtConfig({
   },
 
   appTemplate: "./app.html",
+
+  site: {
+    url: "https://pushup-tracker.com",
+    name: "Pushup Tracker",
+    description:
+      "Track your daily pushups and compete with friends in real-time",
+    defaultLocale: "en",
+  },
+
+  ogImage: {
+    defaults: {
+      component: "NuxtSeo",
+      props: {
+        template: "pushup",
+      },
+    },
+  },
+
+  robots: {
+    allow: "/",
+  },
+
+  sitemap: {
+    enabled: true,
+  },
 });

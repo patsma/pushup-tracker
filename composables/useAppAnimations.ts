@@ -12,6 +12,7 @@ export const useAppAnimations = () => {
       ".pushup-buttons",
       ".pushups-container",
       ".leaderboard",
+      ".the-footer",
     ];
 
     mainTimeline
@@ -19,7 +20,7 @@ export const useAppAnimations = () => {
         opacity: 0,
         duration: 0.5,
         onComplete: () => {
-          if (loader) {
+          if (loader) {``
             loader.remove();
           }
         },
