@@ -64,7 +64,7 @@ export const useDatabase = async () => {
     };
 
     await database.addCollections({
-      todos: {
+      pushups: {
         schema: {
           version: 0,
           primaryKey: "id",
@@ -84,25 +84,30 @@ export const useDatabase = async () => {
               maxLength: 50,
             },
             timestamp: {
-              type: "number"
-            }
+              type: "number",
+            },
           },
-          required: ["id", "pushupCount", "state", "lastChange", "createdBy", "timestamp"],
+          required: [
+            "id",
+            "pushupCount",
+            "state",
+            "lastChange",
+            "createdBy",
+            "timestamp",
+          ],
           indexes: ["state", ["state", "lastChange"], "createdBy"],
         },
         conflictHandler,
       },
     });
 
-    database.todos.preSave((d) => {
+    database.pushups.preSave((d) => {
       d.lastChange = Date.now();
       return d;
     }, true);
 
-  
-
     replicateWebRTC({
-      collection: database.todos,
+      collection: database.pushups,
       connectionHandlerCreator: getConnectionHandlerSimplePeer({}),
       topic: roomHash.substring(0, 10),
       pull: {},
@@ -122,4 +127,4 @@ export const useDatabase = async () => {
 
   databasePromise = initDatabase();
   return databasePromise;
-}; 
+};

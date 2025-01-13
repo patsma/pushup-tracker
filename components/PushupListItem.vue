@@ -4,16 +4,16 @@ import { useAppAnimations } from "~/composables/useAppAnimations";
 import gsap from "gsap";
 
 const props = defineProps({
-  todo: {
+  pushup: {
     type: Object,
     required: true,
   },
 });
 
 const username = localStorage.getItem("username");
-const canDelete = computed(() => props.todo.createdBy === username);
+const canDelete = computed(() => props.pushup.createdBy === username);
 
-async function deleteTodo() {
+async function deletePushup() {
   if (canDelete.value) {
     await gsap.to(itemRef.value, {
       height: 0,
@@ -22,12 +22,12 @@ async function deleteTodo() {
       duration: 0.3,
       ease: "power2.inOut",
     });
-    await props.todo.remove();
+    await props.pushup.remove();
   }
 }
 
 const formattedDate = computed(() => {
-  return new Date(props.todo.timestamp).toLocaleString();
+  return new Date(props.pushup.timestamp).toLocaleString();
 });
 
 const { animateNewEntry } = useAppAnimations();
@@ -47,9 +47,9 @@ onMounted(() => {
     >
       <div class="flex items-center gap-3">
         <span class="text-2xl font-bold w-12 text-emerald-400">{{
-          todo.pushupCount
+          pushup.pushupCount
         }}</span>
-        <span class="text-gray-400"> &nbsp;{{ todo.createdBy }}</span>
+        <span class="text-gray-400"> &nbsp;{{ pushup.createdBy }}</span>
       </div>
       <div class="flex items-center gap-4">
         <span class="text-sm text-gray-500">{{ formattedDate }}</span>
@@ -59,7 +59,7 @@ onMounted(() => {
           variant="ghost"
           icon="i-heroicons-x-mark"
           size="sm"
-          @click="deleteTodo"
+          @click="deletePushup"
           class="text-gray-400 hover:text-white"
         />
       </div>

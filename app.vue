@@ -6,7 +6,7 @@ import UserAuth from "~/components/UserAuth.vue";
 import AppLoader from "~/components/AppLoader.vue";
 
 // State management
-const todoList = ref([]);
+const pushupList = ref([]);
 const username = ref(localStorage.getItem("username") || "");
 const { initializePageAnimation } = useAppAnimations();
 
@@ -14,12 +14,12 @@ const { initializePageAnimation } = useAppAnimations();
 const database = await useDatabase();
 
 // Subscribe to database changes
-database.todos
+database.pushups
   .find({
     sort: [{ state: "desc" }, { lastChange: "desc" }],
   })
-  .$.subscribe((todos) => {
-    todoList.value = todos;
+  .$.subscribe((pushups) => {
+    pushupList.value = pushups;
   });
 
 onMounted(() => {
@@ -88,7 +88,7 @@ useHead({
           <PushupEntry />
         </div>
         <div class="pushups-container">
-          <TodoList :todo-list="todoList" />
+          <PushupList :pushup-list="pushupList" />
         </div>
         <div class="leaderboard">
           <LeaderBoard />
@@ -121,12 +121,6 @@ useHead({
   display: flex;
   flex-direction: column;
   gap: 2rem;
-}
-
-/* Remove old TodoMVC styles that we don't need anymore */
-.todoapp {
-  background: none;
-  box-shadow: none;
 }
 
 .header-content {

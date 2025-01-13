@@ -1,6 +1,6 @@
 import type { RxDocument } from "rxdb";
 
-export interface TodoDocType {
+export interface PushupDocType {
   id: string;
   name: string;
   state: "open" | "done";
@@ -8,4 +8,4 @@ export interface TodoDocType {
   createdBy: string;
 }
 
-export type RxTodoDocument = RxDocument<TodoDocType>;
+export type RxPushupDocument = RxDocument<PushupDocType>;

@@ -2,7 +2,7 @@
 import { ref, computed } from "vue";
 
 const props = defineProps({
-  todoList: {
+  pushupList: {
     type: Array,
     required: true,
   },
@@ -11,11 +11,11 @@ const props = defineProps({
 const filter = ref("all"); // 'all' or 'me'
 const username = localStorage.getItem("username");
 
-const displayedTodoList = computed(() => {
+const displayedPushupList = computed(() => {
   if (filter.value === "me") {
-    return props.todoList.filter((todo) => todo.createdBy === username);
+    return props.pushupList.filter((pushup) => pushup.createdBy === username);
   }
-  return props.todoList;
+  return props.pushupList;
 });
 </script>
 
@@ -51,10 +51,10 @@ const displayedTodoList = computed(() => {
     <ul
       class="space-y-3 list-none max-h-[30vh] overflow-y-auto custom-scrollbar"
     >
-      <TodoListItem
-        v-for="todo in displayedTodoList"
-        :todo="todo"
-        :key="todo.id"
+      <PushupListItem
+        v-for="pushup in displayedPushupList"
+        :pushup="pushup"
+        :key="pushup.id"
       />
     </ul>
   </div>

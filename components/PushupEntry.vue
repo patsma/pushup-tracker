@@ -6,7 +6,7 @@ const database = await useDatabase();
 
 async function addPushups(count) {
   const username = localStorage.getItem("username") || "Anonymous";
-  await database.todos.insert({
+  await database.pushups.insert({
     id: randomCouchString(10),
     pushupCount: count,
     state: "done",

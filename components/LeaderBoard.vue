@@ -8,8 +8,8 @@ const entries = ref([]);
 const { animateNumber } = useAppAnimations();
 
 // Subscribe to database changes
-database.todos.find().$.subscribe((todos) => {
-  entries.value = todos;
+database.pushups.find().$.subscribe((pushups) => {
+  entries.value = pushups;
 });
 
 const leaderboard = computed(() => {
