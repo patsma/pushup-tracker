@@ -56,6 +56,7 @@ onMounted(() => {
         </div>
       </main>
     </header>
+    <TheFooter />
   </div>
 </template>
 
