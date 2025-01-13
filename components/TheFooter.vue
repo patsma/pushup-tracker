@@ -5,14 +5,13 @@
     class="fixed bottom-4 right-4 p-2 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors z-50"
     aria-label="Toggle footer"
   >
-    <div ref="arrowRef" class="transform flex">
+    <div class="footer-toggle-arrow transform flex">
       <Icon name="ri:arrow-down-s-line" class="w-5 h-5 text-gray-400" />
     </div>
   </button>
 
   <!-- Footer content -->
   <footer
-    ref="footerRef"
     class="fixed the-footer bottom-0 left-0 right-0 bg-gray-900 border-t border-gray-800 z-40"
   >
     <div class="max-w-7xl mx-auto px-4 py-6">
@@ -125,39 +124,20 @@
 
 <script setup>
 import { ref, onMounted } from "vue";
-import gsap from "gsap";
+import { useAppAnimations } from "~/composables/useAppAnimations";
 
-const footerRef = ref(null);
-const arrowRef = ref(null);
+const { animateFooter } = useAppAnimations();
 const isHidden = ref(localStorage.getItem("footerHidden") === "true");
-
-onMounted(() => {
-  // Initial position
-  if (isHidden.value) {
-    gsap.set(footerRef.value, { yPercent: 100 });
-    gsap.set(arrowRef.value, { rotation: 180 });
-  }
-});
 
 function toggleFooter() {
   isHidden.value = !isHidden.value;
   localStorage.setItem("footerHidden", isHidden.value);
 
-  const timeline = gsap.timeline({
-    defaults: {
-      duration: 0.5,
-      ease: "power3.inOut",
-    },
-  });
+  const footerEl = document.querySelector(".the-footer");
+  const arrowEl = document.querySelector(".footer-toggle-arrow");
 
-  if (isHidden.value) {
-    timeline
-      .to(footerRef.value, { yPercent: 100 })
-      .to(arrowRef.value, { rotation: 180 }, "<");
-  } else {
-    timeline
-      .to(footerRef.value, { yPercent: 0 })
-      .to(arrowRef.value, { rotation: 0 }, "<");
+  if (footerEl && arrowEl) {
+    animateFooter(footerEl, arrowEl, isHidden.value);
   }
 }
 </script>

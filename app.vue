@@ -63,9 +63,7 @@ useHead({
       content: "Track your daily pushups and compete with friends in real-time",
     },
   ],
-  link: [
-    { rel: "canonical", href: "https://pushup-tracker.netlify.app/" },
-  ],
+  link: [{ rel: "canonical", href: "https://pushup-tracker.netlify.app/" }],
 });
 </script>
 
