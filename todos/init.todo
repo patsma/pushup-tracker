@@ -31,6 +31,7 @@ Project: Pushup Tracker
 ✔ Fix robots.txt @done(25-01-14 04:44)
 ✔ Add OG tags @done(25-01-14 04:44)
 - Fix Nuxt OG Image
+- Logo group justify start
 - Accesibility basics
 - Fix Schema.org warning
 - Animate logo
