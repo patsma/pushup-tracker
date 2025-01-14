@@ -21,18 +21,6 @@ export default defineNuxtConfig({
         clientPort: 3000,
       },
     },
-    build: {
-      chunkSizeWarningLimit: 1000,
-      rollupOptions: {
-        output: {
-          manualChunks(id) {
-            if (id.includes("node_modules")) {
-              return "vendor";
-            }
-          },
-        },
-      },
-    },
   },
 
   modules: ["nuxt-auth-utils", "@nuxt/ui", "@nuxtjs/color-mode", "@nuxtjs/seo"],
@@ -50,22 +38,14 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      htmlAttrs: {
-        lang: "en",
-      },
-      link: [
-        { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
-        { rel: "canonical", href: "https://pushup-tracker.netlify.app/" },
-      ],
+      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
       meta: [
-        { charset: "utf-8" },
+        { name: "format-detection", content: "telephone=no" },
+        { name: "theme-color", content: "#111827" },
         {
-          name: "viewport",
-          content: "width=device-width, initial-scale=1, maximum-scale=1",
+          name: "apple-mobile-web-app-status-bar-style",
+          content: "black-translucent",
         },
-        { "http-equiv": "X-UA-Compatible", content: "IE=edge" },
-        // Pre-connect to improve performance
-        { rel: "preconnect", href: "https://pushup-tracker.netlify.app" },
       ],
     },
     pageTransition: { name: "page", mode: "out-in" },
@@ -82,7 +62,12 @@ export default defineNuxtConfig({
   },
 
   ogImage: {
-    enabled: false,
+    defaults: {
+      component: "NuxtSeo",
+      props: {
+        template: "pushup",
+      },
+    },
   },
 
   robots: {
@@ -123,32 +108,6 @@ export default defineNuxtConfig({
       },
       siteName: "Pushup Tracker",
       type: "website",
-    },
-    schemaOrg: {
-      enabled: false,
-    },
-  },
-
-  nitro: {
-    preset: "netlify",
-    prerender: {
-      routes: ["/"],
-      crawlLinks: true,
-      failOnError: false,
-    },
-    future: {
-      nativeSWR: true,
-    },
-    output: {
-      dir: "dist",
-    },
-  },
-
-  routeRules: {
-    // Pre-render the main page for SEO
-    "/": {
-      prerender: true,
-      static: true,
     },
   },
 });
