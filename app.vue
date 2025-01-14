@@ -5,6 +5,7 @@ import { useAppAnimations } from "~/composables/useAppAnimations";
 import UserAuth from "~/components/UserAuth.vue";
 import AppLoader from "~/components/AppLoader.vue";
 import AppLogo from "~/components/AppLogo.vue";
+import seoConfig from "~/app/seo-config";
 
 // State management
 const pushupList = ref([]);
@@ -26,6 +27,15 @@ database.pushups
 onMounted(() => {
   // Initialize animations after everything is loaded
   initializePageAnimation();
+});
+
+useHead({
+  title: seoConfig.title,
+  titleTemplate: seoConfig.titleTemplate,
+  meta: [
+    { name: "description", content: seoConfig.description },
+    ...seoConfig.metaTags,
+  ],
 });
 </script>
 

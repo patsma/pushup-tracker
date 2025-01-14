@@ -61,15 +61,6 @@ export default defineNuxtConfig({
     defaultLocale: "en",
   },
 
-  ogImage: {
-    defaults: {
-      component: "NuxtSeo",
-      props: {
-        template: "pushup",
-      },
-    },
-  },
-
   robots: {
     allow: "/",
     sitemap: "/sitemap.xml",
@@ -90,8 +81,8 @@ export default defineNuxtConfig({
     mobileApp: true,
     mobileAppIOS: true,
     facebook: {
-      appId: "", // Add your FB app ID if you have one
-      pageId: "", // Add your FB page ID if you have one
+      appId: "",
+      pageId: "",
     },
     twitter: {
       creator: "@tastysites",
@@ -105,9 +96,13 @@ export default defineNuxtConfig({
         height: 630,
         alt: "Pushup Tracker - Track your workouts",
         type: "image/jpeg",
+        secureUrl: "https://pushup-tracker.netlify.app/og-image.jpg",
       },
       siteName: "Pushup Tracker",
       type: "website",
+      title: "Pushup Tracker - Real-time Workout Tracking",
+      description:
+        "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
     },
   },
 });
