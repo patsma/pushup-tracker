@@ -1,1 +1,3 @@
-
+User-agent: *
+Allow: /
+Sitemap: https://pushup-tracker.netlify.app/sitemap.xml 

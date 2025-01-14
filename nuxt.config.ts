@@ -54,10 +54,10 @@ export default defineNuxtConfig({
   appTemplate: "./app.html",
 
   site: {
-    url: "https://pushup-tracker.com",
+    url: "https://pushup-tracker.netlify.app",
     name: "Pushup Tracker",
     description:
-      "Track your daily pushups and compete with friends in real-time",
+      "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
     defaultLocale: "en",
   },
 
@@ -72,9 +72,42 @@ export default defineNuxtConfig({
 
   robots: {
     allow: "/",
+    sitemap: "/sitemap.xml",
   },
 
   sitemap: {
     enabled: true,
+    urls: ["/", "/leaderboard"],
+  },
+
+  seo: {
+    redirectToCanonical: true,
+    keywords: "pushup tracker, workout tracker, fitness app, exercise tracking",
+    viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+    themeColor: "#111827",
+    colorScheme: "dark light",
+    author: "TastySites",
+    mobileApp: true,
+    mobileAppIOS: true,
+    facebook: {
+      appId: "", // Add your FB app ID if you have one
+      pageId: "", // Add your FB page ID if you have one
+    },
+    twitter: {
+      creator: "@tastysites",
+      site: "@tastysites",
+      card: "summary_large_image",
+    },
+    openGraph: {
+      image: {
+        url: "https://pushup-tracker.netlify.app/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Pushup Tracker - Track your workouts",
+        type: "image/jpeg",
+      },
+      siteName: "Pushup Tracker",
+      type: "website",
+    },
   },
 });
