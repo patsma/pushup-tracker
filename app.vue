@@ -27,10 +27,23 @@ onMounted(() => {
   // Initialize animations after everything is loaded
   initializePageAnimation();
 });
+
+// Add SEO metadata for static generation
+useSeoMeta({
+  title: "Pushup Tracker - Real-time Workout Tracking",
+  description:
+    "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
+  ogTitle: "Pushup Tracker - Real-time Workout Tracking",
+  ogDescription:
+    "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
+  ogImage: "https://pushup-tracker.netlify.app/og-image.jpg",
+  twitterCard: "summary_large_image",
+});
 </script>
 
 <template>
   <AppLoader />
+
   <div class="min-h-screen bg-gray-900 text-white p-6">
     <header class="max-w-2xl mx-auto">
       <div class="flex items-start justify-between mb-12">
