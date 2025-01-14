@@ -21,6 +21,18 @@ export default defineNuxtConfig({
         clientPort: 3000,
       },
     },
+    build: {
+      chunkSizeWarningLimit: 1000,
+      rollupOptions: {
+        output: {
+          manualChunks(id) {
+            if (id.includes("node_modules")) {
+              return "vendor";
+            }
+          },
+        },
+      },
+    },
   },
 
   modules: ["nuxt-auth-utils", "@nuxt/ui", "@nuxtjs/color-mode", "@nuxtjs/seo"],
@@ -118,12 +130,15 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    preset: "netlify",
     prerender: {
       routes: ["/"],
       crawlLinks: true,
       failOnError: false,
     },
-    static: true,
+    future: {
+      nativeSWR: true,
+    },
   },
 
   routeRules: {
