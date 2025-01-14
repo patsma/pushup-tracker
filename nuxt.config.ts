@@ -38,15 +38,54 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+      title: "Pushup Tracker - Real-time Workout Tracking",
       meta: [
-        { name: "format-detection", content: "telephone=no" },
-        { name: "theme-color", content: "#111827" },
+        { charset: "utf-8" },
         {
-          name: "apple-mobile-web-app-status-bar-style",
-          content: "black-translucent",
+          name: "viewport",
+          content: "width=device-width, initial-scale=1, maximum-scale=1",
+        },
+        {
+          name: "description",
+          content:
+            "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
+        },
+
+        // Open Graph / Facebook
+        { property: "og:type", content: "website" },
+        { property: "og:url", content: "https://pushup-tracker.netlify.app/" },
+        {
+          property: "og:title",
+          content: "Pushup Tracker - Real-time Workout Tracking",
+        },
+        {
+          property: "og:description",
+          content:
+            "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
+        },
+        {
+          property: "og:image",
+          content: "https://pushup-tracker.netlify.app/og-image.jpg",
+        },
+
+        // Twitter
+        { name: "twitter:card", content: "summary_large_image" },
+        { name: "twitter:url", content: "https://pushup-tracker.netlify.app/" },
+        {
+          name: "twitter:title",
+          content: "Pushup Tracker - Real-time Workout Tracking",
+        },
+        {
+          name: "twitter:description",
+          content:
+            "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
+        },
+        {
+          name: "twitter:image",
+          content: "https://pushup-tracker.netlify.app/og-image.jpg",
         },
       ],
+      link: [{ rel: "icon", type: "image/svg+xml", href: "/favicon.svg" }],
     },
     pageTransition: { name: "page", mode: "out-in" },
   },
@@ -71,38 +110,38 @@ export default defineNuxtConfig({
     urls: ["/", "/leaderboard"],
   },
 
-  seo: {
-    redirectToCanonical: true,
-    keywords: "pushup tracker, workout tracker, fitness app, exercise tracking",
-    viewport: "width=device-width, initial-scale=1, maximum-scale=1",
-    themeColor: "#111827",
-    colorScheme: "dark light",
-    author: "TastySites",
-    mobileApp: true,
-    mobileAppIOS: true,
-    facebook: {
-      appId: "",
-      pageId: "",
-    },
-    twitter: {
-      creator: "@tastysites",
-      site: "@tastysites",
-      card: "summary_large_image",
-    },
-    openGraph: {
-      image: {
-        url: "https://pushup-tracker.netlify.app/og-image.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Pushup Tracker - Track your workouts",
-        type: "image/jpeg",
-        secureUrl: "https://pushup-tracker.netlify.app/og-image.jpg",
-      },
-      siteName: "Pushup Tracker",
-      type: "website",
-      title: "Pushup Tracker - Real-time Workout Tracking",
-      description:
-        "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
-    },
-  },
+  // seo: {
+  //   redirectToCanonical: true,
+  //   keywords: "pushup tracker, workout tracker, fitness app, exercise tracking",
+  //   viewport: "width=device-width, initial-scale=1, maximum-scale=1",
+  //   themeColor: "#111827",
+  //   colorScheme: "dark light",
+  //   author: "TastySites",
+  //   mobileApp: true,
+  //   mobileAppIOS: true,
+  //   facebook: {
+  //     appId: "",
+  //     pageId: "",
+  //   },
+  //   twitter: {
+  //     creator: "@tastysites",
+  //     site: "@tastysites",
+  //     card: "summary_large_image",
+  //   },
+  //   openGraph: {
+  //     image: {
+  //       url: "https://pushup-tracker.netlify.app/og-image.jpg",
+  //       width: 1200,
+  //       height: 630,
+  //       alt: "Pushup Tracker - Track your workouts",
+  //       type: "image/jpeg",
+  //       secureUrl: "https://pushup-tracker.netlify.app/og-image.jpg",
+  //     },
+  //     siteName: "Pushup Tracker",
+  //     type: "website",
+  //     title: "Pushup Tracker - Real-time Workout Tracking",
+  //     description:
+  //       "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
+  //   },
+  // },
 });
