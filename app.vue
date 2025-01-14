@@ -81,13 +81,15 @@ useHead({
   <AppLoader />
   <div class="min-h-screen bg-gray-900 text-white p-6">
     <header class="max-w-2xl mx-auto">
-      <div class="flex items-center justify-between mb-12">
-        <h1
-          class="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
-        >
-          Pushups
-        </h1>
-        <!-- <AppLogo width="50" /> -->
+      <div class="flex items-start justify-between mb-12">
+        <div class="grid logo-group gap-4 grid-flow-col content-start">
+          <AppLogo class="h-8" width="50" />
+          <h1
+            class="text-3xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
+          >
+            Pushups
+          </h1>
+        </div>
         <div class="flex items-center gap-4 user-controls">
           <UColorModeButton />
           <UserAuth />

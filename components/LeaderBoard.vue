@@ -75,7 +75,7 @@ watch(
           <span class="font-medium">{{ entry.username }}</span>
         </div>
         <span :data-user="entry.username" class="text-gray-400">
-          {{ entry.total }} pushups
+          {{ entry.total }}
         </span>
       </div>
     </div>

@@ -21,7 +21,11 @@ Project: Pushup Tracker
 ✔ Generate logo idea @done(25-01-13 03:31)
 ✔ Refactor to Pushup naming @done(25-01-14 01:13)
 ✔ Recreate logo in Illustrator @done(25-01-14 02:22)
+✔ Add favicon @done(25-01-14 02:39)
+✔ Add logo @done(25-01-14 02:39)
+✔ Add OG info @done(25-01-14 02:39)
 
+✔ Leaderboard redundant pushup text @done(25-01-14 02:53)
 - Fix loading animation sequence, footer toggle btn
 - Fix robots.txt
 - Fix Nuxt OG Image

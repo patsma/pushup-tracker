@@ -28,7 +28,7 @@ export const useAppAnimations = () => {
   const initializePageAnimation = () => {
     const loader = document.querySelector(".initial-loader");
     const elements = [
-      "h1",
+      ".logo-group",
       ".user-controls",
       ".pushup-buttons",
       ".pushups-container",
