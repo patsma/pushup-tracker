@@ -35,12 +35,12 @@
             <Icon name="ri:github-fill" class="w-4 h-4" />
             <span>Source Code:</span>
             <a
-              href="https://github.com/patsma/local-first-nuxt-pushupmvc"
+              href="https://github.com/patsma/local-first-nuxt-todomvc"
               target="_blank"
               rel="noopener noreferrer"
               class="text-emerald-400 hover:text-emerald-300 transition-colors"
             >
-              patsma/local-first-nuxt-pushupmvc
+              patsma/local-first-nuxt-todomvc
             </a>
           </p>
 
