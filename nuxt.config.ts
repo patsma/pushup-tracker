@@ -139,6 +139,9 @@ export default defineNuxtConfig({
     future: {
       nativeSWR: true,
     },
+    output: {
+      dir: "dist",
+    },
   },
 
   routeRules: {

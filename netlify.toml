@@ -1,7 +1,7 @@
 # example netlify.toml
 [build]
-  command = "npm run build"
-  publish = ".output/public"
+  command = "npm run generate"
+  publish = "dist"
   functions = "netlify/functions"
 
 [build.environment]
