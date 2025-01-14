@@ -29,6 +29,7 @@ Project: Pushup Tracker
 ✔ Fix loading animation sequence, footer toggle btn @done(25-01-14 03:31)
 
 - Fix robots.txt
+- Add OG tags
 - Fix Nuxt OG Image
 - Accesibility basics
 - Fix Schema.org warning
