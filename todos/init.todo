@@ -28,8 +28,8 @@ Project: Pushup Tracker
 ✔ Leaderboard redundant pushup text @done(25-01-14 02:53)
 ✔ Fix loading animation sequence, footer toggle btn @done(25-01-14 03:31)
 
-- Fix robots.txt
-- Add OG tags
+✔ Fix robots.txt @done(25-01-14 04:44)
+✔ Add OG tags @done(25-01-14 04:44)
 - Fix Nuxt OG Image
 - Accesibility basics
 - Fix Schema.org warning

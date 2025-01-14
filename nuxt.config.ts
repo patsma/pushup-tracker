@@ -101,8 +101,9 @@ export default defineNuxtConfig({
   },
 
   robots: {
-    allow: "/",
-    sitemap: "/sitemap.xml",
+    UserAgent: "*",
+    Allow: "/",
+    Sitemap: "https://pushup-tracker.netlify.app/sitemap.xml",
   },
 
   sitemap: {
@@ -144,4 +145,14 @@ export default defineNuxtConfig({
   //       "Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.",
   //   },
   // },
+
+  // Disable OG Image module since we're using static meta tags
+  ogImage: {
+    enabled: false,
+  },
+
+  // Disable Schema.org since we're not using SSR
+  schemaOrg: {
+    enabled: false,
+  },
 });
