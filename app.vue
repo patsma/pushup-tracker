@@ -4,6 +4,7 @@ import { ref, onMounted } from "vue";
 import { useAppAnimations } from "~/composables/useAppAnimations";
 import UserAuth from "~/components/UserAuth.vue";
 import AppLoader from "~/components/AppLoader.vue";
+import AppLogo from "~/components/AppLogo.vue";
 
 // State management
 const pushupList = ref([]);
@@ -51,9 +52,13 @@ useHead({
       property: "og:description",
       content: "Track your daily pushups and compete with friends in real-time",
     },
+    { property: "og:image", content: "/favicon.svg" },
+    { property: "og:image:width", content: "903" },
+    { property: "og:image:height", content: "903" },
+    { property: "og:image:type", content: "image/svg+xml" },
 
     // Twitter
-    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:card", content: "summary" },
     {
       name: "twitter:title",
       content: "Pushup Tracker - Real-time Workout Tracking",
@@ -62,8 +67,13 @@ useHead({
       name: "twitter:description",
       content: "Track your daily pushups and compete with friends in real-time",
     },
+    { name: "twitter:image", content: "/favicon.svg" },
+    { name: "twitter:image:alt", content: "Pushup Tracker Logo" },
   ],
-  link: [{ rel: "canonical", href: "https://pushup-tracker.netlify.app/" }],
+  link: [
+    { rel: "canonical", href: "https://pushup-tracker.netlify.app/" },
+    { rel: "icon", type: "image/svg+xml", href: "/favicon.svg" },
+  ],
 });
 </script>
 
@@ -77,6 +87,7 @@ useHead({
         >
           Pushups
         </h1>
+        <!-- <AppLogo width="50" /> -->
         <div class="flex items-center gap-4 user-controls">
           <UColorModeButton />
           <UserAuth />

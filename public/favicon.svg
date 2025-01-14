@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_2" data-name="Layer 2" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 903 903">
+  <defs>
+    <linearGradient id="linear-gradient" x1="71.31" y1="296.62" x2="827.56" y2="674.7" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#34d396"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <g id="favicon">
+    <g opacity=".99">
+      <g id="logoGroup">
+        <g>
+          <circle id="head" cx="449.66" cy="325.59" r="95.58" fill="url(#linear-gradient)"/>
+          <path id="body" d="M683.41,294.35h-55.81c-12.47,0-22.44,10.41-21.83,22.87,1.84,37.15-9.71,77.8-40.43,117.73-2.34,3.04-5.13,5.72-8.27,7.91-126.34,88.07-262.29.72-262.29-118.04,0-2.57.06-5.12.19-7.66.62-12.43-9.38-22.81-21.83-22.81h-58.79s-173.42,0-173.42,0c-6.72,0-12.17,5.45-12.17,12.17v68.86s0,251.65,0,251.65c0,23.35,18.93,42.27,42.27,42.27h0c23.35,0,42.27-18.93,42.27-42.27v-251.81s101.61,0,101.61,0c23.39,105.79,118.58,184.99,232.48,184.99s209.09-79.2,232.48-184.99h109.83v251.79c0,23.36,18.94,42.3,42.3,42.3h0c23.33,0,42.25-18.92,42.25-42.25v-251.67s0-13.26,0-13.26c0-37.43-30.34-67.77-67.77-67.77h-123.07Z" fill="url(#linear-gradient)"/>
+          <rect id="floor" x="173.96" y="619.68" width="549.58" height="53.3" rx="14.39" ry="14.39" fill="url(#linear-gradient)"/>
+        </g>
+      </g>
+      <rect id="dummy" width="903" height="903" fill="none"/>
+    </g>
+  </g>
+</svg>
