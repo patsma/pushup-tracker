@@ -3,30 +3,16 @@ import { gsap } from "gsap";
 export const useAppAnimations = () => {
   const mainTimeline = gsap.timeline();
 
-  // Separate footer initialization
-  const initializeFooter = () => {
-    const footerEl = document.querySelector(".the-footer");
-    const arrowEl = document.querySelector(".footer-toggle-arrow");
-    const isFooterHidden = localStorage.getItem("footerHidden") === "true";
-
-    if (isFooterHidden) {
-      // Set initial state immediately
-      gsap.set(footerEl, { yPercent: 100, opacity: 1 });
-      gsap.set(arrowEl, { rotation: 180, opacity: 1 });
-    } else {
-      gsap.set([footerEl, arrowEl], { opacity: 0 });
-      gsap.to([footerEl, arrowEl], {
-        opacity: 1,
-        duration: 0.5,
-        delay: 1, // Delay to let main content load first
-        ease: "power2.out",
-      });
-    }
-  };
-
   // Initial page load animation
   const initializePageAnimation = () => {
     const loader = document.querySelector(".initial-loader");
+    const footerEl = document.querySelector(".the-footer");
+    const toggleBtn = document.querySelector(".footer-toggle-btn");
+    const arrowEl = document.querySelector(".footer-toggle-arrow");
+
+    const isFooterHidden = localStorage.getItem("footerHidden") === "true";
+
+    // Main content elements
     const elements = [
       ".logo-group",
       ".user-controls",
@@ -35,10 +21,17 @@ export const useAppAnimations = () => {
       ".leaderboard",
     ];
 
-    // Initialize footer separately
-    initializeFooter();
+    // Set initial states
+    gsap.set(toggleBtn, { opacity: 0 });
+    gsap.set([footerEl], { opacity: 0 });
+    if (isFooterHidden) {
+      gsap.set(footerEl, { yPercent: 100 });
+      gsap.set(arrowEl, { rotation: 180 });
+    }
 
+    // Create main sequence
     mainTimeline
+      // Fade out loader
       .to(loader, {
         opacity: 0,
         duration: 0.5,
@@ -48,6 +41,7 @@ export const useAppAnimations = () => {
           }
         },
       })
+      // Animate main content elements
       .from(elements, {
         y: 20,
         opacity: 0,
@@ -55,6 +49,34 @@ export const useAppAnimations = () => {
         stagger: 0.1,
         ease: "power2.out",
         clearProps: "all",
+      })
+      // Animate footer elements based on state
+      .add(function () {
+        const footerTimeline = gsap.timeline();
+
+        if (isFooterHidden) {
+          footerTimeline.to(toggleBtn, {
+            opacity: 1,
+            duration: 0.5,
+            ease: "power2.out",
+          });
+        } else {
+          footerTimeline
+            .to([footerEl, toggleBtn], {
+              opacity: 1,
+              duration: 0.5,
+              ease: "power2.out",
+            })
+            .from(
+              footerEl,
+              {
+                yPercent: 20,
+                duration: 0.5,
+                ease: "power2.out",
+              },
+              "<"
+            );
+        }
       });
   };
 
@@ -76,7 +98,9 @@ export const useAppAnimations = () => {
         .to(footerEl, { yPercent: 100 })
         .to(arrowEl, { rotation: 180 }, "<");
     } else {
-      timeline.to(footerEl, { yPercent: 0 }).to(arrowEl, { rotation: 0 }, "<");
+      timeline
+        .to(footerEl, { yPercent: 0, opacity: 1 })
+        .to(arrowEl, { rotation: 0 }, "<");
     }
 
     return timeline;

@@ -2,7 +2,7 @@
   <!-- Fixed toggle button that always stays visible -->
   <button
     @click="toggleFooter"
-    class="fixed bottom-4 right-4 p-2 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors z-50"
+    class="fixed footer-toggle-btn bottom-4 right-4 p-2 bg-gray-800 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors z-50"
     aria-label="Toggle footer"
   >
     <div class="footer-toggle-arrow transform flex">
