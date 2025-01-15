@@ -47,7 +47,7 @@ useHead({
         <div
           class="grid logo-group justify-start gap-4 grid-flow-col content-start"
         >
-          <AppLogo class="h-8" width="50" />
+          <AppLogo class="h-8 w-14" width="50" />
           <h1
             class="text-3xl hidden lg:block font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent"
           >

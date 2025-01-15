@@ -127,10 +127,36 @@ export const useAppAnimations = () => {
     });
   };
 
+  // Add new animations for filter transitions
+  // const enterFilterAnimation = (el: Element) => {
+  //   gsap.from(el, {
+  //     y: 20,
+  //     opacity: 0,
+  //     duration: 0.4,
+  //     ease: "power2.out",
+  //   });
+  // };
+
+  const leaveFilterAnimation = (el: Element, done: () => void) => {
+    gsap.to(el, {
+      y: -20,
+      opacity: 0,
+      duration: 0.3,
+      ease: "power2.in",
+      onComplete: () => {
+        setTimeout(() => {
+          done();
+        }, 100);
+      },
+    });
+  };
+
   return {
     initializePageAnimation,
     animateFooter,
     animateNewEntry,
     animateNumber,
+    // enterFilterAnimation,
+    leaveFilterAnimation,
   };
 };

@@ -35,6 +35,7 @@ Project: Pushup Tracker
 ✔ Align close icon so there is always the same space from the side @done(25-01-15 03:28)
 
 ✔ Ensure the pushups list doesn't jump when overflowY appears @done(25-01-15 03:59)
+✔ Animate out entries when clicking My Entries @done(25-01-15 05:37)
 
 - Tap/Click on entry to toggle between full name and the date/time
 - Accesibility basics
