@@ -35,26 +35,3 @@ async function addPushups(count) {
     </UButton>
   </div>
 </template>
-
-<style scoped>
-.pushup-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  padding: 1rem;
-}
-
-.pushup-btn {
-  padding: 0.5rem 1rem;
-  border: none;
-  border-radius: 4px;
-  background-color: #b83f45;
-  color: white;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-.pushup-btn:hover {
-  background-color: #a03339;
-}
-</style>

@@ -51,7 +51,7 @@ watch(
   <UCard class="bg-gray-800 rounded-lg p-6">
     <template #header>
       <h2
-        class="text-xl font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent"
+        class="text-xl text-center font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent"
       >
         Leaderboard
       </h2>
@@ -81,49 +81,3 @@ watch(
     </div>
   </UCard>
 </template>
-
-<style scoped>
-.leaderboard {
-  margin: 2rem auto;
-  max-width: 600px;
-  padding: 1rem;
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-h2 {
-  text-align: center;
-  color: #b83f45;
-  margin-bottom: 1rem;
-}
-
-.leaderboard-list {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-}
-
-.leaderboard-entry {
-  display: grid;
-  grid-template-columns: 50px 1fr auto;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  background: #f5f5f5;
-  border-radius: 4px;
-}
-
-.rank {
-  font-weight: bold;
-  color: #b83f45;
-}
-
-.username {
-  color: #333;
-}
-
-.total {
-  font-weight: bold;
-  color: #666;
-}
-</style>

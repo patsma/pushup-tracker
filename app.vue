@@ -83,42 +83,6 @@ useHead({
 </template>
 
 <style>
-.app-container {
-  max-width: 800px;
-  margin: 0 auto;
-  height: 100%;
-  padding: 1rem;
-}
-
-.main-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.main-header h1 {
-  color: #b83f45;
-  margin-bottom: 0.5rem;
-}
-
-.main-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-
-.header-content {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 1rem;
-}
-
-.main-header h1 {
-  margin: 0;
-}
-
 /* Prevent double-tap zoom */
 * {
   touch-action: manipulation;

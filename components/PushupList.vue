@@ -71,11 +71,6 @@ const displayedPushupList = computed(() => {
 </template>
 
 <style scoped>
-.pushups-container {
-  width: 100%;
-  margin: 1rem 0;
-}
-
 .list-container {
   position: relative;
   height: calc(35vh);

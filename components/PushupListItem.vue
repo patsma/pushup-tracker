@@ -106,26 +106,3 @@ onMounted(() => {
     </div>
   </li>
 </template>
-
-<style scoped>
-.pushup-entry {
-  display: flex;
-  align-items: center;
-  padding: 0.5rem 1rem;
-  gap: 1rem;
-}
-
-.pushup-count {
-  font-weight: bold;
-  min-width: 100px;
-}
-
-.creator-info {
-  color: #777;
-}
-
-.timestamp {
-  color: #999;
-  font-size: 0.8em;
-}
-</style>

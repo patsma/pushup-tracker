@@ -1,3 +1,23 @@
+<script setup>
+import { ref, onMounted } from "vue";
+import { useAppAnimations } from "~/composables/useAppAnimations";
+
+const { animateFooter } = useAppAnimations();
+const isHidden = ref(localStorage.getItem("footerHidden") === "true");
+
+function toggleFooter() {
+  isHidden.value = !isHidden.value;
+  localStorage.setItem("footerHidden", isHidden.value);
+
+  const footerEl = document.querySelector(".the-footer");
+  const arrowEl = document.querySelector(".footer-toggle-arrow");
+
+  if (footerEl && arrowEl) {
+    animateFooter(footerEl, arrowEl, isHidden.value);
+  }
+}
+</script>
+
 <template>
   <!-- Fixed toggle button that always stays visible -->
   <button
@@ -141,23 +161,3 @@
     </div>
   </footer>
 </template>
-
-<script setup>
-import { ref, onMounted } from "vue";
-import { useAppAnimations } from "~/composables/useAppAnimations";
-
-const { animateFooter } = useAppAnimations();
-const isHidden = ref(localStorage.getItem("footerHidden") === "true");
-
-function toggleFooter() {
-  isHidden.value = !isHidden.value;
-  localStorage.setItem("footerHidden", isHidden.value);
-
-  const footerEl = document.querySelector(".the-footer");
-  const arrowEl = document.querySelector(".footer-toggle-arrow");
-
-  if (footerEl && arrowEl) {
-    animateFooter(footerEl, arrowEl, isHidden.value);
-  }
-}
-</script>
