@@ -54,7 +54,7 @@ onMounted(() => {
       <div class="flex items-center gap-4">
         <span class="text-sm text-gray-500">{{ formattedDate }}</span>
         <UButton
-          v-if="canDelete"
+          :style="{ visibility: canDelete ? 'visible' : 'hidden' }"
           color="red"
           variant="ghost"
           icon="i-heroicons-x-mark"

@@ -8,7 +8,7 @@ const props = defineProps({
   },
 });
 
-const filter = ref("all"); // 'all' or 'me'
+const filter = ref("all");
 const username = localStorage.getItem("username");
 
 const displayedPushupList = computed(() => {
@@ -48,63 +48,46 @@ const displayedPushupList = computed(() => {
       </UButton>
     </div>
 
-    <ul
-      class="space-y-3 list-none max-h-[30vh] overflow-y-auto custom-scrollbar"
-    >
-      <PushupListItem
-        v-for="pushup in displayedPushupList"
-        :pushup="pushup"
-        :key="pushup.id"
-      />
-    </ul>
+    <div class="list-container">
+      <ul class="entries-list custom-scrollbar">
+        <PushupListItem
+          v-for="pushup in displayedPushupList"
+          :pushup="pushup"
+          :key="pushup.id"
+          class="mb-3 last:mb-0"
+        />
+      </ul>
+    </div>
   </div>
 </template>
 
 <style scoped>
 .pushups-container {
+  width: 100%;
   margin: 1rem 0;
 }
 
-.filters {
-  display: flex;
-  gap: 1rem;
-  padding-bottom: 2rem;
-}
-
-.filters button.selected {
-  background: #b83f45;
-  color: white;
+.list-container {
+  position: relative;
+  height: calc(35vh);
+  min-height: 300px;
+  max-height: 600px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .entries-list {
-  max-height: 40vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   overflow-y: auto;
+  overflow-x: hidden;
   list-style: none;
-  padding: 0;
-}
-
-.entries-list li::marker {
-  display: none;
-  content: "";
-}
-
-/* Custom scrollbar */
-.entries-list::-webkit-scrollbar {
-  width: 8px;
-}
-
-.entries-list::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
-
-.entries-list::-webkit-scrollbar-thumb {
-  background: #b83f45;
-  /* border-radius: 4px; */
-}
-
-.custom-scrollbar {
-  scrollbar-width: thin;
-  scrollbar-color: #475569 #1f2937;
+  padding-right: 6px;
+  width: 100%;
+  scrollbar-gutter: stable;
 }
 
 .custom-scrollbar::-webkit-scrollbar {

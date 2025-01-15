@@ -28,11 +28,15 @@ Project: Pushup Tracker
 ✔ Fix loading animation sequence, footer toggle btn @done(25-01-14 03:31)
 ✔ Fix robots.txt @done(25-01-14 04:44)
 ✔ Add OG tags @done(25-01-14 04:44)
-- Fix Nuxt OG Image
+✔ Fix Schema.org warning @done(25-01-15 02:24)
+✔ Fix Nuxt OG Image @done(25-01-15 02:23)
+✔ Logo group justify start @done(25-01-15 02:59)
+✔ Align header items to bottom @started(25-01-15 03:05) @done(25-01-15 03:21) @lasted(16m35s)
+✔ Align close icon so there is always the same space from the side @done(25-01-15 03:28)
+
+✔ Ensure the pushups list doesn't jump when overflowY appears @done(25-01-15 03:59)
+
+- Tap/Click on entry to toggle between full name and the date/time
 - Accesibility basics
-- Fix Schema.org warning
 - Animate logo
-- Logo group justify start
-- Align close icon so there is always the same space from the side
-- Ensure the pushups list doesn't jump when overflowY appears
 - Restore TypeScript
