@@ -24,15 +24,15 @@ Project: Pushup Tracker
 ✔ Add favicon @done(25-01-14 02:39)
 ✔ Add logo @done(25-01-14 02:39)
 ✔ Add OG info @done(25-01-14 02:39)
-
 ✔ Leaderboard redundant pushup text @done(25-01-14 02:53)
 ✔ Fix loading animation sequence, footer toggle btn @done(25-01-14 03:31)
-
 ✔ Fix robots.txt @done(25-01-14 04:44)
 ✔ Add OG tags @done(25-01-14 04:44)
 - Fix Nuxt OG Image
-- Logo group justify start
 - Accesibility basics
 - Fix Schema.org warning
 - Animate logo
+- Logo group justify start
+- Align close icon so there is always the same space from the side
+- Ensure the pushups list doesn't jump when overflowY appears
 - Restore TypeScript
