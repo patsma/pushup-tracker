@@ -118,4 +118,9 @@ useHead({
 .main-header h1 {
   margin: 0;
 }
+
+/* Prevent double-tap zoom */
+* {
+  touch-action: manipulation;
+}
 </style>

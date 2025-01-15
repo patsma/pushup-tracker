@@ -39,4 +39,6 @@ Project: Pushup Tracker
 ✔ Accesibility basics @done(25-01-15 06:05)
 
 - Animate logo
+- Refactor CSS to global SCSS
+- Clear unused CSS
 - Restore TypeScript
