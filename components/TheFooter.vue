@@ -55,6 +55,20 @@
               >Nuxt 3</a
             >,
             <a
+              href="https://ui.nuxt.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-emerald-400 hover:text-emerald-300 transition-colors"
+              >Nuxt UI</a
+            >,
+            <a
+              href="https://nuxt.com/modules/icon"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-emerald-400 hover:text-emerald-300 transition-colors"
+              >Nuxt Icon</a
+            >,
+            <a
               href="https://rxdb.info"
               target="_blank"
               rel="noopener noreferrer"
@@ -68,13 +82,19 @@
               class="text-emerald-400 hover:text-emerald-300 transition-colors"
               >Dexie.js</a
             >,
-            <span>and</span>
             <a
               href="https://webrtc.org"
               target="_blank"
               rel="noopener noreferrer"
               class="text-emerald-400 hover:text-emerald-300 transition-colors"
               >WebRTC</a
+            >,
+            <a
+              href="https://greensock.com/gsap/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="text-emerald-400 hover:text-emerald-300 transition-colors"
+              >GSAP</a
             >
           </p>
 

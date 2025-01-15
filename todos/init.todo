@@ -37,8 +37,9 @@ Project: Pushup Tracker
 ✔ Animate out entries when clicking My Entries @done(25-01-15 05:37)
 ✔ Tap/Click on entry to toggle between full name and the date/time @done(25-01-15 05:54)
 ✔ Accesibility basics @done(25-01-15 06:05)
+✔ Add footer for missing tech @done(25-01-15 06:40)
 
 - Animate logo
-- Refactor CSS to global SCSS
+
 - Clear unused CSS
 - Restore TypeScript
