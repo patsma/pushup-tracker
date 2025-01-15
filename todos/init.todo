@@ -33,11 +33,10 @@ Project: Pushup Tracker
 ✔ Logo group justify start @done(25-01-15 02:59)
 ✔ Align header items to bottom @started(25-01-15 03:05) @done(25-01-15 03:21) @lasted(16m35s)
 ✔ Align close icon so there is always the same space from the side @done(25-01-15 03:28)
-
 ✔ Ensure the pushups list doesn't jump when overflowY appears @done(25-01-15 03:59)
 ✔ Animate out entries when clicking My Entries @done(25-01-15 05:37)
+✔ Tap/Click on entry to toggle between full name and the date/time @done(25-01-15 05:54)
+✔ Accesibility basics @done(25-01-15 06:05)
 
-- Tap/Click on entry to toggle between full name and the date/time
-- Accesibility basics
 - Animate logo
 - Restore TypeScript

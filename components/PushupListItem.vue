@@ -73,9 +73,15 @@ onMounted(() => {
     <div
       class="bg-gray-800 rounded-lg p-4 hover:bg-gray-750 transition-colors duration-200 cursor-pointer"
       @click="toggleDateTime"
+      @keydown.enter="toggleDateTime"
+      @keydown.space.prevent="toggleDateTime"
+      role="button"
+      tabindex="0"
+      :aria-label="`${pushup.pushupCount} pushups by ${pushup.createdBy}`"
+      :aria-expanded="showDateTime"
     >
       <div ref="contentRef" class="flex items-center justify-between">
-        <div class="flex items-center">
+        <div class="flex items-center gap-2">
           <span class="text-2xl font-bold w-12 text-emerald-400">{{
             pushup.pushupCount
           }}</span>
@@ -93,6 +99,7 @@ onMounted(() => {
             size="sm"
             @click.stop="deletePushup"
             class="text-gray-400 hover:text-white"
+            :aria-label="`Delete entry of ${pushup.pushupCount} pushups`"
           />
         </div>
       </div>

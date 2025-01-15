@@ -40,6 +40,12 @@ useHead({
 </script>
 
 <template>
+  <a
+    href="#main-content"
+    class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 bg-emerald-600 text-white px-4 py-2 rounded-lg z-50"
+  >
+    Skip to main content
+  </a>
   <AppLoader />
   <div class="min-h-screen bg-gray-900 text-white p-6">
     <header class="max-w-2xl mx-auto">
