@@ -1,3 +1,24 @@
+<script setup>
+import { onMounted } from 'vue';
+import { useLogoAnimation } from '~/composables/useLogoAnimation';
+
+defineProps({
+  width: {
+    type: [Number, String],
+    default: 460,
+  },
+  height: {
+    type: [Number, String],
+    default: 241,
+  },
+});
+
+const { animatePushup } = useLogoAnimation();
+
+onMounted(() => {
+  animatePushup();
+});
+</script>
 <template>
   <div class="grid">
     <svg
@@ -28,11 +49,6 @@
               cx="680.67"
               cy="154.56"
               r="154.56"
-              fill="url(#linear-gradient)"
-            />
-            <path
-              id="body"
-              d="M1058.66,104.03h-90.25c-20.16,0-36.29,16.84-35.29,36.98,2.98,60.08-15.71,125.81-65.39,190.39-3.78,4.92-8.29,9.25-13.38,12.79-204.31,142.42-424.16,1.17-424.16-190.88,0-4.16.1-8.29.31-12.39,1.01-20.1-15.17-36.89-35.3-36.89h-95.06s-280.45,0-280.45,0C8.81,104.03,0,112.85,0,123.72v111.36s0,406.95,0,406.95c0,37.76,30.61,68.36,68.36,68.36h0c37.76,0,68.36-30.61,68.36-68.36V234.82s164.31,0,164.31,0c37.83,171.08,191.76,299.15,375.95,299.15s338.12-128.07,375.95-299.15h177.61v407.17c0,37.78,30.62,68.4,68.4,68.4h0c37.74,0,68.33-30.59,68.33-68.33V235.08s0-21.45,0-21.45c0-60.53-49.07-109.59-109.59-109.59h-199.02Z"
               fill="url(#linear-gradient)"
             />
             <g id="bodyDown">
@@ -68,16 +84,3 @@
     </svg>
   </div>
 </template>
-
-<script setup>
-defineProps({
-  width: {
-    type: [Number, String],
-    default: 460,
-  },
-  height: {
-    type: [Number, String],
-    default: 241,
-  },
-});
-</script>

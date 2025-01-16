@@ -1,4 +1,18 @@
 {
+  "printWidth": 80,
   "tabWidth": 2,
-  "useTabs": false
+  "semi": true,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "lf",
+  "bracketSameLine": false,
+  "singleAttributePerLine": false,
+  "methodChaining": {
+    "chain": {
+      "breakChains": true,
+      "minLength": 3
+    }
+  }
 }

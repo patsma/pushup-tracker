@@ -1,0 +1,7 @@
+{
+  "rules": {
+    "newline-per-chained-call": ["error", { "ignoreChainWithDepth": 1 }],
+    "dot-location": ["error", "object"],
+    "dot-notation": "error"
+  }
+} 
