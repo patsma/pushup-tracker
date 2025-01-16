@@ -38,8 +38,9 @@ Project: Pushup Tracker
 ✔ Tap/Click on entry to toggle between full name and the date/time @done(25-01-15 05:54)
 ✔ Accesibility basics @done(25-01-15 06:05)
 ✔ Add footer for missing tech @done(25-01-15 06:40)
+✔ Clear unused CSS @done(25-01-15 06:56)
 
+- Prepare illustartor logo for animaiton
 - Animate logo
-
-- Clear unused CSS
+- Force reload when changing URL
 - Restore TypeScript

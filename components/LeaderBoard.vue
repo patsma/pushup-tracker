@@ -48,7 +48,7 @@ watch(
 </script>
 
 <template>
-  <UCard class="bg-gray-800 rounded-lg p-6">
+  <UCard class="bg-gray-800 rounded-lg p-6 pt-0">
     <template #header>
       <h2
         class="text-xl text-center font-bold bg-gradient-to-r from-rose-400 to-orange-400 bg-clip-text text-transparent"
