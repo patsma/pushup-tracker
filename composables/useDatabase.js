@@ -121,9 +121,13 @@ export const useDatabase = async () => {
       pull: {},
       push: {},
     }).then((replicationState) => {
+      console.log('Signaling server URL:', config.public.signalingServer);
       replicationState.error$.subscribe((err) => {
-        console.log('replication error:');
-        console.dir(err);
+        console.error('Replication error details:', {
+          error: err,
+          signalingUrl: config.public.signalingServer,
+          topic: roomHash.substring(0, 10),
+        });
       });
       replicationState.peerStates$.subscribe((s) => {
         console.log('new peer states:');
