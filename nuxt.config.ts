@@ -61,8 +61,9 @@ export default defineNuxtConfig({
         },
         { name: 'apple-mobile-web-app-title', content: 'Pushup Tracker' },
 
-        // Open Graph
+        // Open Graph / Facebook
         { property: 'og:type', content: 'website' },
+        { property: 'og:url', content: 'https://pushup-tracker.netlify.app/' },
         {
           property: 'og:title',
           content: 'Pushup Tracker - Real-time Workout Tracking',
@@ -73,9 +74,22 @@ export default defineNuxtConfig({
             'Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.',
         },
         { property: 'og:site_name', content: 'Pushup Tracker' },
+        // OG Image tags
+        {
+          property: 'og:image',
+          content: 'https://pushup-tracker.netlify.app/og-image.jpg',
+        },
+        { property: 'og:image:type', content: 'image/jpeg' },
+        { property: 'og:image:width', content: '1200' },
+        { property: 'og:image:height', content: '630' },
+        {
+          property: 'og:image:alt',
+          content: 'Pushup Tracker - Track your workouts',
+        },
 
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:url', content: 'https://pushup-tracker.netlify.app/' },
         {
           name: 'twitter:title',
           content: 'Pushup Tracker - Real-time Workout Tracking',
@@ -84,6 +98,14 @@ export default defineNuxtConfig({
           name: 'twitter:description',
           content:
             'Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.',
+        },
+        {
+          name: 'twitter:image',
+          content: 'https://pushup-tracker.netlify.app/og-image.jpg',
+        },
+        {
+          name: 'twitter:image:alt',
+          content: 'Pushup Tracker - Track your workouts',
         },
       ],
       link: [

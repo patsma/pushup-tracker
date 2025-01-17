@@ -12,7 +12,6 @@
   "dependencies": {
     "@nuxt/ui": "^2.14.1",
     "@nuxtjs/color-mode": "^3.3.2",
-
     "gsap": "^3.12.5",
     "node-datachannel": "^0.21.0",
     "nuxt": "^3.14.159",
