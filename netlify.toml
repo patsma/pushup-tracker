@@ -4,6 +4,9 @@
   functions = "netlify/functions"
   publish = "dist"
 
+[build.environment]
+  NUXT_PUBLIC_SIGNALING_SERVER_URL = "${SIGNALING_SERVER_URL}"
+
   ## Uncomment to use this redirect for Single Page Applications like create-react-app.
   ## Not needed for static site generators.
   #[[redirects]]

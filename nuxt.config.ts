@@ -7,6 +7,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       mode: process.env.NODE_ENV,
+      signalingServer: process.env.NUXT_PUBLIC_SIGNALING_SERVER_URL,
     },
   },
 
@@ -23,7 +24,7 @@ export default defineNuxtConfig({
     },
   },
 
-  modules: ['nuxt-auth-utils', '@nuxt/ui', '@nuxtjs/color-mode'],
+  modules: ['@nuxt/ui', '@nuxtjs/color-mode'],
 
   colorMode: {
     preference: 'system',

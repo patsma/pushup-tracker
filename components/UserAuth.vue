@@ -1,19 +1,19 @@
 <script setup>
-import { ref } from "vue";
+import { ref } from 'vue';
 
-const username = ref(localStorage.getItem("username") || "");
+const username = ref(localStorage.getItem('username') || '');
 const showLoginModal = ref(!username.value);
 
 function login() {
   if (username.value.trim()) {
-    localStorage.setItem("username", username.value.trim());
+    localStorage.setItem('username', username.value.trim());
     showLoginModal.value = false;
   }
 }
 
 function logout() {
-  localStorage.removeItem("username");
-  username.value = "";
+  localStorage.removeItem('username');
+  username.value = '';
   showLoginModal.value = true;
 }
 

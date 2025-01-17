@@ -1,4 +1,4 @@
-import { useRuntimeConfig } from "#imports";
+import { useRuntimeConfig } from '#imports';
 import {
   createRxDatabase,
   defaultHashSha256,
@@ -6,12 +6,12 @@ import {
   randomCouchString,
   deepEqual,
   RXDB_VERSION,
-} from "rxdb/plugins/core";
+} from 'rxdb/plugins/core';
 import {
   replicateWebRTC,
   getConnectionHandlerSimplePeer,
-} from "rxdb/plugins/replication-webrtc";
-import { getRxStorageDexie } from "rxdb/plugins/storage-dexie";
+} from 'rxdb/plugins/replication-webrtc';
+import { getRxStorageDexie } from 'rxdb/plugins/storage-dexie';
 
 let databasePromise = null;
 
@@ -25,27 +25,27 @@ export const useDatabase = async () => {
   let storage = getRxStorageDexie();
 
   async function initDatabase() {
-    if (mode === "development") {
-      await import("rxdb/plugins/dev-mode").then((module) =>
+    if (mode === 'development') {
+      await import('rxdb/plugins/dev-mode').then((module) =>
         addRxPlugin(module.RxDBDevModePlugin)
       );
-      await import("rxdb/plugins/validate-ajv").then((module) => {
+      await import('rxdb/plugins/validate-ajv').then((module) => {
         storage = module.wrappedValidateAjvStorage({ storage });
       });
     }
 
     const roomId = window.location.hash;
     if (!roomId || roomId.length < 5) {
-      window.location.hash = "room-" + randomCouchString(10);
+      window.location.hash = 'room-' + randomCouchString(10);
       window.location.reload();
     }
     const roomHash = await defaultHashSha256(roomId);
 
     const database = await createRxDatabase({
       name:
-        "tpdp-" +
-        RXDB_VERSION.replace(/\./g, "-") +
-        "-" +
+        'tpdp-' +
+        RXDB_VERSION.replace(/\./g, '-') +
+        '-' +
         roomHash.substring(0, 10),
       storage,
     });
@@ -67,35 +67,35 @@ export const useDatabase = async () => {
       pushups: {
         schema: {
           version: 0,
-          primaryKey: "id",
-          type: "object",
+          primaryKey: 'id',
+          type: 'object',
           properties: {
-            id: { type: "string", maxLength: 20 },
-            pushupCount: { type: "number", minimum: 0 },
-            state: { type: "string", enum: ["open", "done"], maxLength: 10 },
+            id: { type: 'string', maxLength: 20 },
+            pushupCount: { type: 'number', minimum: 0 },
+            state: { type: 'string', enum: ['open', 'done'], maxLength: 10 },
             lastChange: {
-              type: "number",
+              type: 'number',
               minimum: 0,
               maximum: 2701307494132,
               multipleOf: 1,
             },
             createdBy: {
-              type: "string",
+              type: 'string',
               maxLength: 50,
             },
             timestamp: {
-              type: "number",
+              type: 'number',
             },
           },
           required: [
-            "id",
-            "pushupCount",
-            "state",
-            "lastChange",
-            "createdBy",
-            "timestamp",
+            'id',
+            'pushupCount',
+            'state',
+            'lastChange',
+            'createdBy',
+            'timestamp',
           ],
-          indexes: ["state", ["state", "lastChange"], "createdBy"],
+          indexes: ['state', ['state', 'lastChange'], 'createdBy'],
         },
         conflictHandler,
       },
@@ -108,17 +108,25 @@ export const useDatabase = async () => {
 
     replicateWebRTC({
       collection: database.pushups,
-      connectionHandlerCreator: getConnectionHandlerSimplePeer({}),
+      connectionHandlerCreator: getConnectionHandlerSimplePeer({
+        signalingServerUrl: config.public.signalingServer,
+        config: {
+          iceServers: [
+            { urls: 'stun:stun.l.google.com:19302' },
+            { urls: 'stun:global.stun.twilio.com:3478' },
+          ],
+        },
+      }),
       topic: roomHash.substring(0, 10),
       pull: {},
       push: {},
     }).then((replicationState) => {
       replicationState.error$.subscribe((err) => {
-        console.log("replication error:");
+        console.log('replication error:');
         console.dir(err);
       });
       replicationState.peerStates$.subscribe((s) => {
-        console.log("new peer states:");
+        console.log('new peer states:');
         console.dir(s);
       });
     });
