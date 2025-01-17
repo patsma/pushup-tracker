@@ -46,4 +46,7 @@ Project: Pushup Tracker
 ✘ Force reload when changing URL @cancelled(25-01-16 05:32)
 ✘ Restore TypeScript @cancelled(25-01-16 05:32)
 
-- Cleanup safari favicon - SEO, description, etc.
+✔ Cleanup safari favicon - SEO, description, etc. @done(25-01-17 01:09)
+- Clean unused packages
+
+- Update readme with new info

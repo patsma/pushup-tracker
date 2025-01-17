@@ -1,15 +1,14 @@
 <script setup>
-import { useDatabase } from "~/composables/useDatabase";
-import { ref, onMounted } from "vue";
-import { useAppAnimations } from "~/composables/useAppAnimations";
-import UserAuth from "~/components/UserAuth.vue";
-import AppLoader from "~/components/AppLoader.vue";
-import AppLogo from "~/components/AppLogo.vue";
-import seoConfig from "~/app/seo-config";
+import { useDatabase } from '~/composables/useDatabase';
+import { ref, onMounted } from 'vue';
+import { useAppAnimations } from '~/composables/useAppAnimations';
+import UserAuth from '~/components/UserAuth.vue';
+import AppLoader from '~/components/AppLoader.vue';
+import AppLogo from '~/components/AppLogo.vue';
 
 // State management
 const pushupList = ref([]);
-const username = ref(localStorage.getItem("username") || "");
+const username = ref(localStorage.getItem('username') || '');
 const { initializePageAnimation } = useAppAnimations();
 
 // Use your database here
@@ -18,7 +17,7 @@ const database = await useDatabase();
 // Subscribe to database changes
 database.pushups
   .find({
-    sort: [{ state: "desc" }, { lastChange: "desc" }],
+    sort: [{ state: 'desc' }, { lastChange: 'desc' }],
   })
   .$.subscribe((pushups) => {
     pushupList.value = pushups;
@@ -27,15 +26,6 @@ database.pushups
 onMounted(() => {
   // Initialize animations after everything is loaded
   initializePageAnimation();
-});
-
-useHead({
-  title: seoConfig.title,
-  titleTemplate: seoConfig.titleTemplate,
-  meta: [
-    { name: "description", content: seoConfig.description },
-    ...seoConfig.metaTags,
-  ],
 });
 </script>
 
