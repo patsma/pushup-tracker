@@ -1,6 +1,5 @@
 <script setup>
 import { useDatabase } from '~/composables/useDatabase';
-import { ref, onMounted } from 'vue';
 import { useAppAnimations } from '~/composables/useAppAnimations';
 import UserAuth from '~/components/UserAuth.vue';
 import AppLoader from '~/components/AppLoader.vue';
@@ -51,7 +50,6 @@ onMounted(() => {
           </h1>
         </div>
         <div class="flex items-end self-end gap-4 user-controls">
-          <UColorModeButton />
           <UserAuth />
         </div>
       </div>

@@ -110,6 +110,7 @@ export default defineNuxtConfig({
           name: 'twitter:image:alt',
           content: 'Pushup Tracker - Track your workouts',
         },
+        { name: 'mobile-web-app-capable', content: 'yes' },
       ],
       link: [
         // Favicons

@@ -1,6 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
-import { useAppAnimations } from "~/composables/useAppAnimations";
+import { useAppAnimations } from '~/composables/useAppAnimations';
 
 const { leaveFilterAnimation } = useAppAnimations();
 
@@ -11,10 +10,10 @@ const props = defineProps({
   },
 });
 
-const filter = ref("all");
-const username = localStorage.getItem("username");
+const filter = ref('all');
+const username = localStorage.getItem('username');
 const displayedPushupList = computed(() => {
-  if (filter.value === "me") {
+  if (filter.value === 'me') {
     return props.pushupList.filter((pushup) => pushup.createdBy === username);
   }
   return props.pushupList;
@@ -56,7 +55,6 @@ const displayedPushupList = computed(() => {
         tag="ul"
         class="entries-list custom-scrollbar"
         :css="false"
-        @enter="enterAnimation"
         @leave="leaveFilterAnimation"
       >
         <PushupListItem
