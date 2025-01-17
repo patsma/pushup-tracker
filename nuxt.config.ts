@@ -33,7 +33,6 @@ export default defineNuxtConfig({
 
   ui: {
     global: true,
-    icons: ['heroicons'],
   },
 
   app: {
@@ -74,9 +73,12 @@ export default defineNuxtConfig({
             'Track your daily pushups and compete with friends in real-time. A simple, effective way to stay motivated and achieve your fitness goals.',
         },
         { property: 'og:site_name', content: 'Pushup Tracker' },
-        // OG Image tags
         {
           property: 'og:image',
+          content: 'https://pushup-tracker.netlify.app/og-image.jpg',
+        },
+        {
+          property: 'og:image:secure_url',
           content: 'https://pushup-tracker.netlify.app/og-image.jpg',
         },
         { property: 'og:image:type', content: 'image/jpeg' },
@@ -86,6 +88,7 @@ export default defineNuxtConfig({
           property: 'og:image:alt',
           content: 'Pushup Tracker - Track your workouts',
         },
+        { property: 'og:locale', content: 'en_US' },
 
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },

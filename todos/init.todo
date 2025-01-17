@@ -39,14 +39,10 @@ Project: Pushup Tracker
 ✔ Accesibility basics @done(25-01-15 06:05)
 ✔ Add footer for missing tech @done(25-01-15 06:40)
 ✔ Clear unused CSS @done(25-01-15 06:56)
-
 ✔ Prepare illustartor logo for animaiton @done(25-01-16 03:11)
 ✔ Animate logo @done(25-01-16 03:11)
-
 ✘ Force reload when changing URL @cancelled(25-01-16 05:32)
-
 ✔ Cleanup safari favicon - SEO, description, etc. @done(25-01-17 01:09)
 ✔ Clean unused packages @done(25-01-17 01:23)
-☐ Restore TypeScript
-
+✘ Restore TypeScript - loosing new room refresh @cancelled(25-01-17 02:21)
 - Update readme with new info
