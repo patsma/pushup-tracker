@@ -1,8 +1,9 @@
 <script setup>
 import { useAppAnimations } from '~/composables/useAppAnimations';
-
+import { gsap } from 'gsap';
 const { animateFooter } = useAppAnimations();
 const isHidden = ref(localStorage.getItem('footerHidden') === 'true');
+const heartTimeline = ref(null);
 
 function toggleFooter() {
   isHidden.value = !isHidden.value;
@@ -13,6 +14,42 @@ function toggleFooter() {
 
   if (footerEl && arrowEl) {
     animateFooter(footerEl, arrowEl, isHidden.value);
+  }
+}
+
+function startHeartbeat() {
+  heartTimeline.value = gsap
+    .timeline({ repeat: -1, timeScale: 0.015 })
+    .to('.heart-icon', {
+      scale: 1.3,
+      duration: 0.2,
+      ease: 'power2.out',
+    })
+    .to('.heart-icon', {
+      scale: 1,
+      duration: 0.15,
+      ease: 'power2.in',
+    })
+    .to('.heart-icon', {
+      scale: 1.2,
+      duration: 0.15,
+      ease: 'power2.out',
+    })
+    .to('.heart-icon', {
+      scale: 1,
+      duration: 0.1,
+      ease: 'power2.in',
+    })
+    .timeScale(0.5);
+}
+
+function stopHeartbeat() {
+  if (heartTimeline.value) {
+    heartTimeline.value.kill();
+    gsap.to('.heart-icon', {
+      scale: 1,
+      duration: 0.1,
+    });
   }
 }
 </script>
@@ -36,17 +73,24 @@ function toggleFooter() {
     <div class="max-w-7xl mx-auto px-4 py-6">
       <div class="grid gap-4">
         <!-- TastySites Credit -->
-        <div class="flex justify-center items-center gap-2 text-gray-400">
-          <span class="text-emerald-400">Made with ♥️ by</span>
-          <a
-            href="https://tastysites.pl"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="text-white hover:text-emerald-400 transition-colors duration-200"
-          >
-            TastySites
-          </a>
-        </div>
+        <a
+          href="https://tastysites.pl"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex justify-center items-center gap-2 text-white hover:text-rose-400 transition-colors duration-200"
+          @mouseenter="startHeartbeat"
+          @mouseleave="stopHeartbeat"
+        >
+          <span class="text-emerald-400 flex items-center gap-1">
+            Made with
+            <Icon
+              name="ri:heart-fill"
+              class="heart-icon w-4 h-4 text-rose-400"
+            />
+            by
+          </span>
+          TastySites
+        </a>
 
         <!-- Original Credits -->
         <div class="grid gap-2 text-sm text-gray-400 text-center">
