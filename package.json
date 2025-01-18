@@ -1,7 +1,14 @@
 {
-  "name": "nuxt-app",
+  "name": "pushup-tracker",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
+  "description": "A local-first peer-to-peer pushup tracking application",
+  "author": "patsma",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/patsma/pushup-tracker.git"
+  },
   "scripts": {
     "build": "nuxt build",
     "dev": "nuxt dev",

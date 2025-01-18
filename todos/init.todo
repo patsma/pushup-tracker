@@ -45,5 +45,5 @@ Project: Pushup Tracker
 ✔ Cleanup safari favicon - SEO, description, etc. @done(25-01-17 01:09)
 ✔ Clean unused packages @done(25-01-17 01:23)
 ✘ Restore TypeScript - loosing new room refresh @cancelled(25-01-17 02:21)
+✔ Add signaling server ? @done(25-01-18 03:38)
 - Update readme with new info
-- Add signaling server ?

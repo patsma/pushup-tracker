@@ -54,12 +54,12 @@ function toggleFooter() {
             <Icon name="ri:github-fill" class="w-4 h-4" />
             <span>Source Code:</span>
             <a
-              href="https://github.com/patsma/local-first-nuxt-todomvc"
+              href="https://github.com/patsma/pushup-tracker"
               target="_blank"
               rel="noopener noreferrer"
               class="text-emerald-400 hover:text-emerald-300 transition-colors"
             >
-              patsma/local-first-nuxt-todomvc
+              patsma/pushup-tracker
             </a>
           </p>
 
