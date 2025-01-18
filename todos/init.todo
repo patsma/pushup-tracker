@@ -46,4 +46,4 @@ Project: Pushup Tracker
 ✔ Clean unused packages @done(25-01-17 01:23)
 ✘ Restore TypeScript - loosing new room refresh @cancelled(25-01-17 02:21)
 ✔ Add signaling server ? @done(25-01-18 03:38)
-- Update readme with new info
+✔ Update readme with new info @done(25-01-18 05:08)

@@ -79,7 +79,7 @@ export const useDatabase = async () => {
               maximum: 2701307494132,
               multipleOf: 1,
             },
-            
+
             createdBy: {
               type: 'string',
               maxLength: 50,
@@ -122,7 +122,7 @@ export const useDatabase = async () => {
       pull: {},
       push: {},
     }).then((replicationState) => {
-      console.log('Signaling server URL:', config.public.signalingServer);
+      // console.log('Signaling server URL:', config.public.signalingServer);
       replicationState.error$.subscribe((err) => {
         console.error('Replication error details:', {
           error: err,
