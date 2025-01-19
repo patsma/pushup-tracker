@@ -52,6 +52,10 @@ function closeModal() {
           placeholder="Enter your nickname"
           @keyup.enter="login"
           autofocus
+          class="text-base"
+          :ui="{
+            input: 'text-16',
+          }"
         />
       </div>
 
